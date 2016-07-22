@@ -96,12 +96,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\row_received_video_call.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\grid.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\grid.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_groups.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\fragment_groups.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\grid.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\grid.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_choosevideoactivity.xml",
@@ -276,12 +276,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\choose_griditem.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_baidumap.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\activity_baidumap.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\row_received_location.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\row_received_location.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_baidumap.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\activity_baidumap.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\search_bar_with_padding.xml",
