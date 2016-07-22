@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86_64,x86"
+    api-level="23"
+    density="560dpi"
+    format="7"
+    timestamp="8747852888781" >
+
+    <task
+        name="javac"
+        duration="0" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="0" />
+    <task
+        name="verifier"
+        duration="0" />
+
+    <build timestamp="7466600584044" >
+        <artifact
+            location="C:\Users\sks\AndroidStudioProjects\superwechat1\build\outputs\apk\superwechat1-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="8525372833171" >
+        <artifact
+            location="C:\Users\sks\AndroidStudioProjects\superwechat1\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="8747852888781" />
+
+</instant-run>
