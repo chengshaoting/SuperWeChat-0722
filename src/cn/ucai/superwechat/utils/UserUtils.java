@@ -1,5 +1,6 @@
 package cn.ucai.superwechat.utils;
 
+import android.app.Application;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
@@ -74,13 +75,23 @@ public class UserUtils {
     /**
      * 设置用户昵称
      */
-    public static void setUserNick(String username,TextView textView){
-    	User user = getUserInfo(username);
-    	if(user != null){
-    		textView.setText(user.getNick());
-    	}else{
-    		textView.setText(username);
-    	}
+    public static void setAppUserNick(String username,TextView textView){
+        UserAvatar user = getAppUserInfo(username);
+        setAppUserNick(user,textView);
+    }
+
+    /**
+     * 设置用户昵称
+     */
+    public static void setAppUserNick(UserAvatar user,TextView textView){
+        if(user != null){
+            if(user.getMUserNick()!=null){
+                textView.setText(user.getMUserNick());
+            }else{
+                textView.setText(user.getMUserName());
+
+        }
+        }
     }
     
     /**
@@ -135,14 +146,7 @@ public class UserUtils {
 
     }
 
-    public static void setAppUserNick(String username, TextView nameTextview) {
-        UserAvatar user = getAppUserInfo(username);
-        if(user != null){
-            nameTextview.setText(user.getMUserNick());
-        }else{
-            nameTextview.setText("默认名字");
-        }
-    }
+
 
 
     private static UserAvatar getAppUserInfo(String username) {
