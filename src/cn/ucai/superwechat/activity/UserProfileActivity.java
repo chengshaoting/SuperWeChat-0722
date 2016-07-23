@@ -86,10 +86,10 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 			Log.e(TAG, "ksdfsdfdsfsd=" + user.toString());
 			tvNickName.setText(user.getMUserNick());
 		}
-		if (username == null||username.equals(SuperWeChatApplication.getInstance().getUserName())) {
+			if (username == null||username.equals(SuperWeChatApplication.getInstance().getUserName())) {
 			tvUsername.setText(EMChatManager.getInstance().getCurrentUser());
 			UserUtils.setAppCurrentUserNick(tvNickName);
-			UserUtils.setAppUserAvatar(this,SuperWeChatApplication.getInstance().getUserName(),headAvatar);
+				UserUtils.setAppUserAvatar(this,SuperWeChatApplication.getInstance().getUserName(),headAvatar);
 		}  else {
 			tvUsername.setText(username);
 //			UserUtils.setUserNick(username, tvNickName);

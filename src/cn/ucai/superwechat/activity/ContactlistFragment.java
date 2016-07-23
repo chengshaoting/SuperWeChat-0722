@@ -22,8 +22,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -169,6 +171,7 @@ public class ContactlistFragment extends Fragment {
 		contactList = new ArrayList<User>();
 		// 获取设置contactlist
 		getContactList();
+		getReciver();
 		
 		//搜索框
 		query = (EditText) getView().findViewById(R.id.query);
@@ -497,5 +500,24 @@ public class ContactlistFragment extends Fragment {
 	    	outState.putBoolean(Constant.ACCOUNT_REMOVED, true);
 	    }
 	    
+	}
+	class updateUser extends BroadcastReceiver{
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			adapter.notifyDataSetChanged();
+		}
+	}
+	updateUser mUpdateUser;
+	private void getReciver() {
+		IntentFilter filter = new IntentFilter("1");
+		mUpdateUser =new updateUser();
+		getActivity().registerReceiver(mUpdateUser,filter);
+	}
+
+	@Override
+	public void onDestroyView() {
+		super.onDestroyView();
+		getActivity().unregisterReceiver(mUpdateUser);
 	}
 }
