@@ -54,6 +54,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 	private TextView tvUsername;
 	private ProgressDialog dialog;
 	private RelativeLayout rlNickName;
+
 	String avatarName;
 	private OnSetAvatarListener mOnsetAvatarListener;
 	
@@ -98,6 +99,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 			if (username == null||username.equals(SuperWeChatApplication.getInstance().getUserName())) {
 			tvUsername.setText(EMChatManager.getInstance().getCurrentUser());
 			UserUtils.setAppCurrentUserNick(tvNickName);
+//				UserUtils.setAppUserNick(SuperWeChatApplication.getInstance().getUserName(),tvNickName);
 				UserUtils.setAppUserAvatar(this,SuperWeChatApplication.getInstance().getUserName(),headAvatar);
 		}  else {
 			tvUsername.setText(username);
@@ -278,7 +280,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 //			break;
 //		}
 		super.onActivityResult(requestCode, resultCode, data);
-		if(requestCode!=RESULT_OK){
+		if(resultCode!=RESULT_OK){
 			return;
 		}
 		mOnsetAvatarListener.setAvatar(requestCode,data,headAvatar);
@@ -294,6 +296,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 		utils.setRequestUrl(I.REQUEST_UPLOAD_AVATAR)
 				.addParam(I.NAME_OR_HXID,userName)
 				.addParam(I.AVATAR_TYPE,I.AVATAR_TYPE_USER_PATH)
+				.targetClass(Result.class)
 				.addFile(file)
 				.execute(new OkHttpUtils2.OnCompleteListener<Result>() {
 					@Override
