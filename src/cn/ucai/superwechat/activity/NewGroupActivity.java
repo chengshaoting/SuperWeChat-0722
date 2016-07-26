@@ -152,7 +152,6 @@ public class NewGroupActivity extends BaseActivity {
 					}
 				});
 	}
-
 	private void createGroupMembers(String groupId, String[] members) {
 		String memberArr = "";
 		for(String m:members){
