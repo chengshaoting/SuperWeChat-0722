@@ -207,7 +207,6 @@ public class NewGroupActivity extends BaseActivity {
 			return;
 		}
 
-
 		if (requestCode == CREATE_GROUP_ICON) {
 			//新建群组
 			progressDialog = new ProgressDialog(this);
