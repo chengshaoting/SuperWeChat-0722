@@ -81,10 +81,10 @@ public class RegisterActivity extends BaseActivity {
 		});
 		findViewById(R.id.rlAvatar).setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				avatarListener=new OnSetAvatarListener(RegisterActivity.this,R.id.rlAvatar,getAvaterName(), I.AVATAR_TYPE_USER_PATH);
+			public void onClick(View v) {avatarListener=new OnSetAvatarListener(RegisterActivity.this,R.id.rlAvatar,getAvaterName(), I.AVATAR_TYPE_USER_PATH);
 			}
 		});
+
 
 	}
 
@@ -157,7 +157,8 @@ public class RegisterActivity extends BaseActivity {
 	}
 
 	private void registerAppSever() {
-		File file = new File(OnSetAvatarListener.getAvatarPath(RegisterActivity.this,I.AVATAR_TYPE_USER_PATH),avatarName+I.AVATAR_SUFFIX_JPG);
+		File file = new File(OnSetAvatarListener.getAvatarPath(RegisterActivity.this,
+				I.AVATAR_TYPE_USER_PATH),avatarName+I.AVATAR_SUFFIX_JPG);
 		final OkHttpUtils2<Result> utils = new OkHttpUtils2<Result>();
 		utils.setRequestUrl(I.REQUEST_REGISTER)
 				.addParam(I.User.USER_NAME,username)
