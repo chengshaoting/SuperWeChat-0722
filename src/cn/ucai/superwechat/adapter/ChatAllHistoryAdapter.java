@@ -92,7 +92,6 @@ public class ChatAllHistoryAdapter extends ArrayAdapter<EMConversation> {
 		} else {
 			holder.list_item_layout.setBackgroundResource(R.drawable.mm_listitem_grey);
 		}
-
 		// 获取与此用户/群组的会话
 		EMConversation conversation = getItem(position);
 		// 获取用户username或者群组groupid
