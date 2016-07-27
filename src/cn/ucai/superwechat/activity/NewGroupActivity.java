@@ -213,7 +213,7 @@ public class NewGroupActivity extends BaseActivity {
 		for(String s:members){
 			member+=s+",";
 		}
-		String substring = member.substring(0, member.length() - 1);
+		String substring = member.substring(0, member.length() - 2);
 		OkHttpUtils2<String> utils = new OkHttpUtils2<>();
 		utils.setRequestUrl(I.REQUEST_ADD_GROUP_MEMBERS)
 				.addParam(I.Member.GROUP_HX_ID,groupId)

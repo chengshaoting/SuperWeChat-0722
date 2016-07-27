@@ -41,7 +41,10 @@ import android.widget.Toast;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMGroup;
 import com.easemob.chat.EMGroupManager;
+
+import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.data.OkHttpUtils2;
 import cn.ucai.superwechat.utils.UserUtils;
 import cn.ucai.superwechat.widget.ExpandGridView;
 import com.easemob.exceptions.EaseMobException;
@@ -431,6 +434,39 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 				}
 			}
 		}).start();
+		addGroupMembers(st6,groupId,newmembers);
+	}
+	private void addGroupMembers(final String st2, String groupId, String[] members) {
+		String member = "";
+		for(String s:members){
+			member+=s+",";
+		}
+		String substring = member.substring(0, member.length() - 1);
+		OkHttpUtils2<String> utils = new OkHttpUtils2<>();
+		utils.setRequestUrl(I.REQUEST_ADD_GROUP_MEMBERS)
+				.addParam(I.Member.GROUP_HX_ID,groupId)
+				.addParam(I.Member.USER_NAME,substring)
+				.targetClass(String.class)
+				.execute(new OkHttpUtils2.OnCompleteListener<String>() {
+					@Override
+					public void onSuccess(String result) {
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								progressDialog.dismiss();
+								setResult(RESULT_OK);
+								finish();
+								Toast.makeText(getApplicationContext(), "创建群组成功", Toast.LENGTH_SHORT).show();
+							}
+						});
+					}
+
+					@Override
+					public void onError(String error) {
+						progressDialog.dismiss();
+
+					}
+				});
 	}
 
 	@Override
