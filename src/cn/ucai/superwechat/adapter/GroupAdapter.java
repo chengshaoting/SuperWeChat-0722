@@ -31,6 +31,7 @@ import android.widget.TextView;
 
 import com.easemob.chat.EMGroup;
 import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.utils.UserUtils;
 
 public class GroupAdapter extends ArrayAdapter<EMGroup> {
 
@@ -114,6 +115,7 @@ public class GroupAdapter extends ArrayAdapter<EMGroup> {
 			((TextView) convertView.findViewById(R.id.name)).setText(getItem(position - 3).getGroupName());
 
 		}
+		UserUtils.setAppGroupAvatar(getContext(),getItem(position - 3).getGroupId(),(ImageView) convertView.findViewById(R.id.avatar));
 
 		return convertView;
 	}
