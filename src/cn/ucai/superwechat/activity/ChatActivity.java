@@ -22,8 +22,10 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -95,6 +97,7 @@ import cn.ucai.superwechat.adapter.ExpressionPagerAdapter;
 import cn.ucai.superwechat.adapter.MessageAdapter;
 import cn.ucai.superwechat.adapter.VoicePlayClickListener;
 import cn.ucai.superwechat.domain.RobotUser;
+import cn.ucai.superwechat.task.DownloadMemberMapTask;
 import cn.ucai.superwechat.utils.CommonUtils;
 import cn.ucai.superwechat.utils.ImageUtils;
 import cn.ucai.superwechat.utils.SmileUtils;
@@ -403,25 +406,26 @@ public class ChatActivity extends BaseActivity implements OnClickListener, EMEve
 			toChatUsername = getIntent().getStringExtra("groupId");
 
 			if(chatType == CHATTYPE_GROUP){
-			    onGroupViewCreation();
-			}else{ 
-			    onChatRoomViewCreation();
+				onGroupViewCreation();
+			}else{
+				onChatRoomViewCreation();
 			}
 		}
-        
+
 		// for chatroom type, we only init conversation and create view adapter on success
 		if(chatType != CHATTYPE_CHATROOM){
-		    onConversationInit();
-	        
-	        onListViewCreation();
-	        
-	        // show forward message if the message is not null
-	        String forward_msg_id = getIntent().getStringExtra("forward_msg_id");
-	        if (forward_msg_id != null) {
-	            // 显示发送要转发的消息
-	            forwardMessage(forward_msg_id);
-	        }
+			onConversationInit();
+
+			onListViewCreation();
+
+			// show forward message if the message is not null
+			String forward_msg_id = getIntent().getStringExtra("forward_msg_id");
+			if (forward_msg_id != null) {
+				// 显示发送要转发的消息
+				forwardMessage(forward_msg_id);
+			}
 		}
+		createRecever();
 	}
 
 	protected void onConversationInit(){
@@ -517,10 +521,14 @@ public class ChatActivity extends BaseActivity implements OnClickListener, EMEve
         }else{
             ((TextView) findViewById(R.id.name)).setText(toChatUsername);
         }
+
         
         // 监听当前会话的群聊解散被T事件
         groupListener = new GroupListener();
         EMGroupManager.getInstance().addGroupChangeListener(groupListener);
+
+		new DownloadMemberMapTask(getApplicationContext(),toChatUsername).execute();
+
 	}
 	
 	protected void onChatRoomViewCreation(){
@@ -1469,6 +1477,9 @@ public class ChatActivity extends BaseActivity implements OnClickListener, EMEve
 		if(groupListener != null){
 		    EMGroupManager.getInstance().removeGroupChangeListener(groupListener);
 		}
+		if(mMemberMapRecever!=null){
+			unregisterReceiver(mMemberMapRecever);
+		}
 	}
 
 	@Override
@@ -1751,6 +1762,20 @@ public class ChatActivity extends BaseActivity implements OnClickListener, EMEve
 
 	public ListView getListView() {
 		return listView;
+	}
+
+	class MemberMapRecever extends BroadcastReceiver{
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			adapter.notifyDataSetChanged();
+		}
+	}
+	MemberMapRecever mMemberMapRecever;
+	public void createRecever(){
+		mMemberMapRecever=new MemberMapRecever();
+		IntentFilter filter = new IntentFilter("update_member_list");
+		registerReceiver(mMemberMapRecever,filter);
 	}
 
 }
