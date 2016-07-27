@@ -80,6 +80,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 	private void initListener() {
 		Intent intent = getIntent();
 		String username = intent.getStringExtra("username");
+		String hxid = intent.getStringExtra("groupId");
 		boolean enableUpdate = intent.getBooleanExtra("setting", true);
 		if (enableUpdate) {
 			headPhotoUpdate.setVisibility(View.VISIBLE);
@@ -101,7 +102,11 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 			UserUtils.setAppCurrentUserNick(tvNickName);
 //				UserUtils.setAppUserNick(SuperWeChatApplication.getInstance().getUserName(),tvNickName);
 				UserUtils.setCurrentUserAvatar(this,headAvatar);
-		}  else {
+		}  else if(hxid!=null){
+				tvUsername.setText(username);
+				UserUtils.setAppMemberNick(hxid,username,tvNickName);
+				UserUtils.setAppUserAvatar(this,username,headAvatar);
+			}else {
 			tvUsername.setText(username);
 //			UserUtils.setUserNick(username, tvNickName);
 //			UserUtils.setUserAvatar(this, username, headAvatar);
