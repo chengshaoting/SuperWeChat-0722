@@ -17,8 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -45,6 +47,7 @@ import com.easemob.chat.EMGroupManager;
 import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
 import cn.ucai.superwechat.data.OkHttpUtils2;
+import cn.ucai.superwechat.task.DownloadMemberMapTask;
 import cn.ucai.superwechat.utils.UserUtils;
 import cn.ucai.superwechat.widget.ExpandGridView;
 import com.easemob.exceptions.EaseMobException;
@@ -181,6 +184,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 		clearAllHistory.setOnClickListener(this);
 		blacklistLayout.setOnClickListener(this);
 		changeGroupNameLayout.setOnClickListener(this);
+		setUpdateMemberListener();
 
 	}
 
@@ -436,7 +440,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 		}).start();
 		addGroupMembers(st6,groupId,newmembers);
 	}
-	private void addGroupMembers(final String st2, String groupId, String[] members) {
+	private void addGroupMembers(final String st2, final String groupId, String[] members) {
 		String member = "";
 		for(String s:members){
 			member+=s+",";
@@ -450,6 +454,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 				.execute(new OkHttpUtils2.OnCompleteListener<String>() {
 					@Override
 					public void onSuccess(String result) {
+						new DownloadMemberMapTask(getApplicationContext(),groupId).execute();
 						runOnUiThread(new Runnable() {
 							@Override
 							public void run() {
@@ -832,12 +837,27 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 	protected void onDestroy() {
 		super.onDestroy();
 		instance = null;
+		if (mReceiver!=null){
+			unregisterReceiver(mReceiver);
+		}
 	}
 	
 	private static class ViewHolder{
 	    ImageView imageView;
 	    TextView textView;
 	    ImageView badgeDeleteView;
+	}
+	class UpdateMemberReceiver extends BroadcastReceiver{
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			refreshMembers();
+		}
+	}
+	UpdateMemberReceiver mReceiver;
+	private void setUpdateMemberListener(){
+		mReceiver = new UpdateMemberReceiver();
+		IntentFilter filter = new IntentFilter("update_member_list");
+		registerReceiver(mReceiver,filter);
 	}
 
 }
