@@ -417,7 +417,8 @@ public class MessageAdapter extends BaseAdapter{
 		// 群聊时，显示接收的消息的发送人的名称
 		if ((chatType == ChatType.GroupChat || chatType == ChatType.ChatRoom) && message.direct == EMMessage.Direct.RECEIVE){
 		    //demo里使用username代码nick
-			UserUtils.setAppUserNick(message.getFrom(), holder.tv_usernick);
+			//UserUtils.setUserNick(message.getFrom(), holder.tv_usernick);
+			UserUtils.setAppMemberNick(username,message.getFrom(),holder.tv_usernick);
 		}
 		if(message.direct == EMMessage.Direct.SEND){
 			UserUtils.setCurrentUserNick(holder.tv_usernick);
@@ -571,10 +572,10 @@ public class MessageAdapter extends BaseAdapter{
 	private void setUserAvatar(final EMMessage message, ImageView imageView){
 	    if(message.direct == Direct.SEND){
 	        //显示自己头像
-	        UserUtils.setAppCurrentUserAvatar(imageView);
+	        UserUtils.setCurrentUserAvatar(context,imageView);
 	    }else{
 			//显示对方头像
-	        UserUtils.setCurrentUserAvatar(context, imageView);
+	        UserUtils.setAppUserAvatar(context,username,imageView);
 	    }
 	    imageView.setOnClickListener(new View.OnClickListener() {
 			
