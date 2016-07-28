@@ -396,7 +396,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 				}
 			}
 		}).start();
-		deleteMenbers(SuperWeChatApplication.getInstance().getUserName(),ture);
+		deleteMenbers(SuperWeChatApplication.getInstance().getUserName(),true);
 	}
 
 	/**
@@ -726,6 +726,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 							}
 							EMLog.d("group", "remove user from group:" + username);
 							deleteMembersFromGroup(username);
+							deleteMenbers(username,false);
 						} else {
 							// 正常情况下点击user，可以进入用户详情或者聊天页面等等
 							// startActivity(new
