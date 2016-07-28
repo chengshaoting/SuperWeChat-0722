@@ -112,12 +112,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable\\chat_face_selector.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable\\chat_voice_call_selector.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable\\chat_voice_call_selector.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable\\nickename_input_bg.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable\\nickename_input_bg.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable\\chat_voice_call_selector.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable\\chat_voice_call_selector.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_logout_normal_shape.xml",
@@ -204,12 +204,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable\\mm_title_act_btn.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_cancel_bj.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable\\btn_cancel_bj.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable\\chat_video_call_selector.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable\\chat_video_call_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_cancel_bj.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable\\btn_cancel_bj.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_white_selector.xml",

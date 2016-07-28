@@ -96,12 +96,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\row_received_video_call.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_groups.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\fragment_groups.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\grid.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\grid.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_groups.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\fragment_groups.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_choosevideoactivity.xml",
@@ -308,12 +308,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\fragment_conversation_history.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\expression_gridview.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\expression_gridview.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_profile.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\activity_user_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\expression_gridview.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\expression_gridview.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_new_group.xml",

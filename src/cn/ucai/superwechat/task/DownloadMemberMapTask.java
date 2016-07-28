@@ -19,17 +19,17 @@ import cn.ucai.superwechat.data.OkHttpUtils2;
  */
 public class DownloadMemberMapTask {
     private static final String TAG = DownloadMemberMapTask.class.getSimpleName();
-    String userName;
+    String hxid;
     Context mContext;
 
-    public DownloadMemberMapTask(Context context, String userName) {
+    public DownloadMemberMapTask(Context context, String hxid) {
         mContext = context;
-        this.userName = userName;
+        this.hxid = hxid;
     }
     public void execute(){
         final OkHttpUtils2<String> utils = new OkHttpUtils2<String>();
         utils.setRequestUrl(I.REQUEST_DOWNLOAD_CONTACT_ALL_LIST)
-                .addParam(I.Contact.USER_NAME,userName)
+                .addParam(I.Contact.USER_NAME,hxid)
                 .targetClass(String.class)
                 .execute(new OkHttpUtils2.OnCompleteListener<String>() {
                     @Override

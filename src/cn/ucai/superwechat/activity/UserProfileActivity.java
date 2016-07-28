@@ -78,6 +78,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 	}
 	
 	private void initListener() {
+		final String haha=SuperWeChatApplication.getInstance().getUserName();
 		Intent intent = getIntent();
 		String username = intent.getStringExtra("username");
 		String hxid = intent.getStringExtra("groupId");
@@ -99,8 +100,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 		}
 			if (username == null||username.equals(SuperWeChatApplication.getInstance().getUserName())) {
 			tvUsername.setText(EMChatManager.getInstance().getCurrentUser());
-			UserUtils.setAppCurrentUserNick(tvNickName);
-//				UserUtils.setAppUserNick(SuperWeChatApplication.getInstance().getUserName(),tvNickName);
+		   UserUtils.setAppCurrentUserNick(tvNickName);
+//				UserUtils.setAppUserNick(haha,tvNickName);
 				UserUtils.setCurrentUserAvatar(this,headAvatar);
 		}  else if(hxid!=null){
 				tvUsername.setText(username);
@@ -127,7 +128,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 			final EditText editText = new EditText(this);
 			Log.e(TAG,"nick="+SuperWeChatApplication.getInstance().getUser());
 			Log.e(TAG,"nick="+SuperWeChatApplication.currentUserNick);
-			editText.setText(SuperWeChatApplication.getInstance().getUser().getMUserNick());
+//			editText.setText(SuperWeChatApplication.getInstance().getUser().getMUserNick());
 			new AlertDialog.Builder(this).setTitle(R.string.setting_nickname).setIcon(android.R.drawable.ic_dialog_info).setView(editText)
 					.setPositiveButton(R.string.dl_ok, new DialogInterface.OnClickListener() {
 
@@ -184,8 +185,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 						Result result = Utils.getResultFromJson(s, UserAvatar.class);
 						if (result != null && result.isRetMsg()) {
 							UserAvatar user = (UserAvatar) result.getRetData();
-							SuperWeChatApplication.getInstance().setUser(user);
 							SuperWeChatApplication.currentUserNick=user.getMUserNick();
+							SuperWeChatApplication.getInstance().setUser(user);
 							UserDao dao = new UserDao(UserProfileActivity.this);
 							dao.updateUserNick(user);
 							updateRemoteNick(nickname);

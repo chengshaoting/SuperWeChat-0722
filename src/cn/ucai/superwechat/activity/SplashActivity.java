@@ -26,6 +26,7 @@ import cn.ucai.superwechat.bean.UserAvatar;
 import cn.ucai.superwechat.data.OkHttpUtils2;
 import cn.ucai.superwechat.db.UserDao;
 import cn.ucai.superwechat.task.DownloadContactListTask;
+import cn.ucai.superwechat.task.DownloadGroupListTask;
 
 /**
  * 开屏页
@@ -79,7 +80,7 @@ public class SplashActivity extends BaseActivity {
 									@Override
 									public void onSuccess(String s) {
 										Log.e(TAG, "s="+s);
-										Result result = Utils.getListResultFromJson(s, UserAvatar.class);
+										Result result = Utils.getResultFromJson(s, UserAvatar.class);
 										Log.e(TAG, "result=" + result);
 										if (result!=null&&result.isRetMsg()) {
 											UserAvatar user = (UserAvatar) result.getRetData();
@@ -98,9 +99,13 @@ public class SplashActivity extends BaseActivity {
 									}
 								});
 
+					} else if (user != null) {
+						SuperWeChatApplication.getInstance().setUser(user);
+						SuperWeChatApplication.currentUserNick = user.getMUserNick();
 					}
 
 					new DownloadContactListTask(SplashActivity.this,userName).execute();
+					new DownloadGroupListTask(SplashActivity.this, userName).execute();
 //					闪屏
 
 					long costTime = System.currentTimeMillis() - start;

@@ -114,6 +114,10 @@ public class UserUtils {
         }
         }
     }
+    public static void setAppUserNick(String username, TextView nameTextview) {
+        UserAvatar user = getAppUserInfo(username);
+        setAppUserNick(user,nameTextview);
+    }
     
     /**
      * 设置当前用户昵称
@@ -131,7 +135,7 @@ public class UserUtils {
             textView.setText(user.getMUserNick());
 
         } else {
-            textView.setText(user.getMUserName());
+           textView.setText(SuperWeChatApplication.currentUserNick);
         }
     }
 

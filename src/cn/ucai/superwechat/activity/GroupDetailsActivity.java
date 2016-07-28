@@ -325,7 +325,6 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 
 					@Override
 					public void onError(String error) {
-
 					}
 				});
 

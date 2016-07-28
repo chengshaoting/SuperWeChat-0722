@@ -32,10 +32,14 @@ import android.widget.Toast;
 
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMGroupManager;
+
+import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.data.OkHttpUtils2;
 import cn.ucai.superwechat.db.InviteMessgeDao;
 import cn.ucai.superwechat.domain.InviteMessage;
 import cn.ucai.superwechat.domain.InviteMessage.InviteMesageStatus;
+import cn.ucai.superwechat.task.DownloadMemberMapTask;
 
 public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
 
@@ -150,8 +154,9 @@ public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
 				try {
 					if(msg.getGroupId() == null) //同意好友请求
 						EMChatManager.getInstance().acceptInvitation(msg.getFrom());
-					else //同意加群申请
-					    EMGroupManager.getInstance().acceptApplication(msg.getFrom(), msg.getGroupId());
+					else {//同意加群申请
+						agreeGroupMember(msg.getFrom(),msg.getGroupId());
+					    EMGroupManager.getInstance().acceptApplication(msg.getFrom(), msg.getGroupId());}
 					((Activity) context).runOnUiThread(new Runnable() {
 
 						@Override
@@ -181,6 +186,26 @@ public class NewFriendsMsgAdapter extends ArrayAdapter<InviteMessage> {
 				}
 			}
 		}).start();
+	}
+
+	private void agreeGroupMember(String username, final String groupId) {
+		OkHttpUtils2<String> utils = new OkHttpUtils2<>();
+		utils.setRequestUrl(I.REQUEST_ADD_GROUP_MEMBER)
+				.addParam(I.Member.USER_NAME,username)
+				.addParam(I.Member.GROUP_HX_ID,groupId)
+				.targetClass(String.class)
+				.execute(new OkHttpUtils2.OnCompleteListener<String>() {
+					@Override
+					public void onSuccess(String result) {
+						new DownloadMemberMapTask(context,groupId).execute();
+					}
+
+					@Override
+					public void onError(String error) {
+
+					}
+				});
+
 	}
 
 	private static class ViewHolder {

@@ -1,2 +1,2 @@
+CHANGED,C:\Users\sks\AndroidStudioProjects\superwechat1\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\cn\ucai\superwechat\adapter\MessageAdapter$override.class
 CHANGED,C:\Users\sks\AndroidStudioProjects\superwechat1\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\com\android\tools\fd\runtime\AppPatchesLoaderImpl.class
-CHANGED,C:\Users\sks\AndroidStudioProjects\superwechat1\build\intermediates\transforms\instantRun\debug\folders\4000\5\enhanced\cn\ucai\superwechat\adapter\ChatAllHistoryAdapter$override.class

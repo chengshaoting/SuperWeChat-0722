@@ -181,9 +181,12 @@ public class NewGroupActivity extends BaseActivity {
 						Log.e(TAG,"s="+s);
 						Result result = Utils.getResultFromJson(s, GroupAvatar.class);
 						if(result!=null&&result.isRetMsg()){
+							final GroupAvatar group = (GroupAvatar) result.getRetData();
 							if(members!=null&&members.length>0){
 								addGroupMembers(groupId,members);
 							}else {
+								SuperWeChatApplication.getInstance().getGroupMap().put(group.getMGroupHxid(),group);
+								SuperWeChatApplication.getInstance().getGroupList().add(group);
 								runOnUiThread(new Runnable() {
 									@Override
 									public void run() {
@@ -221,7 +224,14 @@ public class NewGroupActivity extends BaseActivity {
 				.targetClass(String.class)
 				.execute(new OkHttpUtils2.OnCompleteListener<String>() {
 					@Override
-					public void onSuccess(String result) {
+					public void onSuccess(String s) {
+						Log.e(TAG,"s="+s);
+						Result result = Utils.getResultFromJson(s,GroupAvatar.class);
+						Log.e(TAG,"result="+result);
+						GroupAvatar group = (GroupAvatar) result.getRetData();
+						progressDialog.dismiss();
+						SuperWeChatApplication.getInstance().getGroupMap().put(group.getMGroupHxid(),group);
+						SuperWeChatApplication.getInstance().getGroupList().add(group);
 						runOnUiThread(new Runnable() {
 							@Override
 							public void run() {

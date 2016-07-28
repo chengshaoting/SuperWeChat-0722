@@ -562,8 +562,7 @@ public class MessageAdapter extends BaseAdapter{
 		}
 		return convertView;
 	}
-	
-	
+
 	/**
 	 * 显示用户头像
 	 * @param message
