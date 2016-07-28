@@ -24,6 +24,7 @@ import android.content.IntentFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -46,6 +47,10 @@ import com.easemob.chat.EMGroupManager;
 
 import cn.ucai.superwechat.I;
 import cn.ucai.superwechat.R;
+import cn.ucai.superwechat.SuperWeChatApplication;
+import cn.ucai.superwechat.Utils;
+import cn.ucai.superwechat.bean.GroupAvatar;
+import cn.ucai.superwechat.bean.Result;
 import cn.ucai.superwechat.data.OkHttpUtils2;
 import cn.ucai.superwechat.task.DownloadMemberMapTask;
 import cn.ucai.superwechat.utils.UserUtils;
@@ -224,6 +229,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 				progressDialog.setMessage(st3);
 				progressDialog.show();
 				deleteGrop();
+				deleteAppGroup();
 				break;
 			case REQUEST_CODE_CLEAR_ALL_HISTORY:
 				// 清空此群聊的聊天记录
@@ -295,6 +301,28 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 			}
 		}
 	}
+	//解散群组
+
+	private void deleteAppGroup() {
+		GroupAvatar group = SuperWeChatApplication.getInstance().getGroupMap().get(groupId);
+		OkHttpUtils2<String> utils2 = new OkHttpUtils2<String>();
+		utils2.setRequestUrl(I.REQUEST_DELETE_GROUP)
+				.addParam(I.Group.GROUP_ID,String.valueOf(group.getMGroupId()))
+				.targetClass(String.class)
+				.execute(new OkHttpUtils2.OnCompleteListener<String>() {
+					@Override
+					public void onSuccess(String s) {
+						Log.e(TAG, "s========" + s);
+						SuperWeChatApplication.getInstance().getGroupMap().remove(groupId);
+					}
+
+					@Override
+					public void onError(String error) {
+
+					}
+				});
+	}
+
 
 	private void refreshMembers(){
 	    adapter.clear();
@@ -368,6 +396,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 				}
 			}
 		}).start();
+		deleteMenbers(SuperWeChatApplication.getInstance().getUserName(),ture);
 	}
 
 	/**
@@ -511,7 +540,7 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
                         }
                     }
                 }).start();
-				
+
 			} else {
 				String st8 = getResources().getString(R.string.group_is_blocked);
 				final String st9 = getResources().getString(R.string.group_of_shielding);
@@ -774,6 +803,56 @@ public class GroupDetailsActivity extends BaseActivity implements OnClickListene
 			return super.getCount() + 2;
 		}
 	}
+
+	private void deleteMenbers(final String username,final boolean isExit){
+		final OkHttpUtils2<String> utils2 = new OkHttpUtils2<String>();
+		utils2.setRequestUrl(I.REQUEST_FIND_GROUP_BY_HXID)
+				.addParam(I.Group.HX_ID, groupId)
+				.targetClass(String.class)
+				.execute(new OkHttpUtils2.OnCompleteListener<String>() {
+					@Override
+					public void onSuccess(String s) {
+						Result result = Utils.getResultFromJson(s, GroupAvatar.class);
+						if (result != null) {
+							final GroupAvatar group = (GroupAvatar) result.getRetData();
+							final String groupId = group.getMGroupId().toString();
+							Log.e(TAG, "groupId================="+ groupId);
+							final OkHttpUtils2<String> utils = new OkHttpUtils2<String>();
+							utils.setRequestUrl(I.REQUEST_DELETE_GROUP_MEMBER)
+									.addParam(I.Member.GROUP_ID, groupId)
+									.addParam(I.Member.USER_NAME,username)
+									.targetClass(String.class)
+									.execute(new OkHttpUtils2.OnCompleteListener<String>() {
+										@Override
+										public void onSuccess(String result) {
+											Log.e(TAG, "username============" + username);
+											Toast.makeText(GroupDetailsActivity.this, "删除成功啦！", Toast.LENGTH_SHORT).show();
+											if (isExit) {
+												SuperWeChatApplication.getInstance().getGroupMap().get(groupId);
+												SuperWeChatApplication.getInstance().getGroupList().remove(group);
+												SuperWeChatApplication.getInstance().getGroupMap().remove(groupId);
+											} else {
+												SuperWeChatApplication.getInstance().getMemberMap().get(groupId).remove(username);
+											}
+										}
+
+										@Override
+										public void onError(String error) {
+											Toast.makeText(GroupDetailsActivity.this, "删除失败", Toast.LENGTH_SHORT).show();
+										}
+									});
+
+						}
+					}
+
+					@Override
+					public void onError(String error) {
+
+					}
+				});
+
+	}
+
 
 	protected void updateGroup() {
 		new Thread(new Runnable() {
