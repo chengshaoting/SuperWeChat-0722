@@ -12,12 +12,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\row_contact.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\image_grid_fragment.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\image_grid_fragment.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\listview_footer_view.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\listview_footer_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\image_grid_fragment.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\image_grid_fragment.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\main_init_view.xml",
@@ -276,12 +276,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\choose_griditem.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\row_received_location.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\row_received_location.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_baidumap.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\activity_baidumap.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\row_received_location.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\row_received_location.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\search_bar_with_padding.xml",
@@ -308,12 +308,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\fragment_conversation_history.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_profile.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\activity_user_profile.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\expression_gridview.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\expression_gridview.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_profile.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\layout\\activity_user_profile.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\layout\\activity_new_group.xml",

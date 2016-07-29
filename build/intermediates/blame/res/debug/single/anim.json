@@ -48,12 +48,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\anim\\slide_in_from_left.xml"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_out.xml",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\anim\\push_top_out.xml"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\anim\\pop_enter.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\anim\\pop_enter.xml"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_out.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\anim\\push_top_out.xml"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\anim\\push_top_in2.xml",
