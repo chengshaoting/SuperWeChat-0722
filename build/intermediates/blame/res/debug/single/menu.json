@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\menu\\category_child.xml",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\menu\\category_child.xml"
+    },
+    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\menu\\context_tab_contact.xml",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\menu\\context_tab_contact.xml"
     },

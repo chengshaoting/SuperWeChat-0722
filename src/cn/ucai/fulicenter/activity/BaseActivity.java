@@ -27,7 +27,6 @@ public class BaseActivity extends FragmentActivity {
     protected void onCreate(Bundle arg0) {
         super.onCreate(arg0);
     }
-
     @Override
     protected void onResume() {
         super.onResume();

@@ -1448,7 +1448,6 @@ public class ChatActivity extends BaseActivity implements OnClickListener, EMEve
 									}
 								}
 							}
-
 						}
 					}
 				} catch (Exception e) {

@@ -8,6 +8,10 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-nodpi\\find_youxi.png"
     },
     {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4\\nopic.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-nodpi\\nopic.png"
+    },
+    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4\\mobile.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-nodpi\\mobile.png"
     },
