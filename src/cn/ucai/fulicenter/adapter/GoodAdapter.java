@@ -20,6 +20,7 @@ import cn.ucai.fulicenter.bean.NewGoodBean;
  * Created by sks on 2016/8/2.
  */
 public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     Context mContext;
     String footerText;
     ViewGroup parent;
@@ -99,6 +100,15 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }else {
             return ITEM_GOODS;
         }
+    }
+    public void initGoodsList(ArrayList<NewGoodBean> mGoodsList) {
+        this.mGoodsList.clear();
+        this.mGoodsList.addAll(mGoodsList);
+        notifyDataSetChanged();
+    }
+    public void addGoodsList(ArrayList<NewGoodBean> mGoodsList) {
+        this.mGoodsList.addAll(mGoodsList);
+        notifyDataSetChanged();
     }
 
     class NewGoodsViewHolder extends RecyclerView.ViewHolder{
