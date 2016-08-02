@@ -25,11 +25,11 @@ public class Utils {
     public static String getPackageName(Context context){
         return context.getPackageName();
     }
-    
+
     public static void showToast(Context context,String text,int time){
         Toast.makeText(context,text,time).show();
     }
-    
+
     public static void showToast(Context context,int  strId,int time){
         Toast.makeText(context, strId, time).show();
     }
@@ -45,7 +45,6 @@ public class Utils {
         ArrayList<T> arrayList=new ArrayList<T>(list);
         return arrayList;
     }
-
     /**
      * 添加新的数组元素：数组扩容
      * @param array：数组
@@ -57,7 +56,6 @@ public class Utils {
         array[array.length-1]=t;
         return array;
     }
-
     public static String getResourceString(Context context, int msg){
         if(msg<=0) return null;
         String msgStr = msg+"";
@@ -66,21 +64,28 @@ public class Utils {
         return context.getResources().getString(resId);
     }
 
-//    public static <T> datas getResultDate(Object o,final T t){
+    //    public static <T> datas getResultDate(Object o,final T t){
 //        if(o!=null){
 //            Type type = new TypeToken<t>(){}.getClass();
 //            return new Gson().fromJson(o.toString(),type);
 //        }
 //        return null;
 //    }
-
-
     public static <T> Result getResultFromJson(String jsonStr,Class<T> clazz){
         Result result = new Result();
         try {
+            if(jsonStr==null||jsonStr.isEmpty() || jsonStr.length()<3)return null;
             JSONObject jsonObject = new JSONObject(jsonStr);
-            result.setRetCode(jsonObject.getInt("retCode"));
-            result.setRetMsg(jsonObject.getBoolean("retMsg"));
+            if (!jsonObject.isNull("retCode")){
+                result.setRetCode(jsonObject.getInt("retCode"));
+            }else if (!jsonObject.isNull("msg")){
+                result.setRetCode(jsonObject.getInt("msg"));
+            }
+            if (!jsonObject.isNull("retMsg")){
+                result.setRetMsg(jsonObject.getBoolean("retMeg"));
+            }else if (!jsonObject.isNull("result")){
+                result.setRetMsg(jsonObject.getBoolean("retMeg"));
+            }
             if(!jsonObject.isNull("retData")) {
                 JSONObject jsonRetData = jsonObject.getJSONObject("retData");
                 if (jsonRetData != null) {
@@ -100,12 +105,31 @@ public class Utils {
                         return result;
                     }
                 }
+            }else {
+                if (jsonObject!= null) {
+                    Log.e("Utils", "jsonObject=" + jsonObject);
+                    String date;
+                    try {
+                        date = URLDecoder.decode(jsonObject.toString(), I.UTF_8);
+                        Log.e("Utils", "jsonRetData=" + date);
+                        T t = new Gson().fromJson(date, clazz);
+                        result.setRetData(t);
+                        return result;
+
+                    } catch (UnsupportedEncodingException e1) {
+                        e1.printStackTrace();
+                        T t = new Gson().fromJson(jsonObject.toString(), clazz);
+                        result.setRetData(t);
+                        return result;
+                    }
+                }
+
             }
             return result;
         }catch (Exception e){
             e.printStackTrace();
         }
-        return  null;
+        return  result;
     }
 
     public static <T> Result getListResultFromJson(String jsonStr,Class<T> clazz){

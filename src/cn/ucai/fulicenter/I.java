@@ -41,7 +41,7 @@ public interface I {
     public static final String CURRENCY_TYPE_CNY = "CNY";
     public static final String CURRENCY_TYPE_USD = "USD";
 	String MSG_PREFIX_MSG							=		"msg_";						//消息吗前缀
-    
+
     class Cart{
         public static final String ID="id";
         public static final String GOODS_ID="goods_id";
@@ -53,15 +53,15 @@ public interface I {
         public static final String IS_CHECKED="isChecked";
     }
 
-    
+
     class Collect{
         /** 商品id*/
         public static final String ID="id";
-        
+
         public static final String GOODS_ID="goods_id";
-        
+
         public static final String USER_NAME="userName";
-        
+
         /** 商品的中文名称*/
         public static final String GOODS_NAME="goodsName";
         /** 商品的英文名称*/
@@ -70,7 +70,7 @@ public interface I {
         public static final String GOODS_IMG="goodsImg";
         public static final String ADD_TIME="addTime";
     }
-    
+
     class Boutique{
         public static final String TABLE_NAME="tb_boutique";
         public static final String ID="id";
@@ -80,7 +80,7 @@ public interface I {
         public static final String NAME="name";
         public static final String IMAGE_URL="imageurl";
     }
-    
+
     class NewAndBoutiqueGood{
         public static final String CAT_ID="cat_id";
         /** 颜色id*/
@@ -92,18 +92,18 @@ public interface I {
         /** 导购链接*/
         public static final String COLOR_URL="color_url";
     }
-    
+
     class CategoryGroup{
         public static final String ID="id";
         public static final String NAME="name";
         public static final String IMAGE_URL="imageurl";
     }
-    
+
     class CategoryChild extends CategoryGroup{
         public static final String PARENT_ID="parent_id";
         public static final String CAT_ID="catId";
     }
-    
+
     class CategoryGood{
         public static final String TABLE_NAME="tb_category_good";
         public static final String ID="id";
@@ -136,7 +136,7 @@ public interface I {
         /** 分享地址*/
         public static final String SHARE_URL="share_url";
     }
-    
+
     class Property{
         public static final String ID="id";
         public static final String goodsId="goods_id";
@@ -146,7 +146,7 @@ public interface I {
         public static final String COLOR_IMG="colorimg";
         public static final String COLOR_URL="colorurl";
     }
-    
+
     class Album{
         public static final String TABLE_NAME="tb_album";
         public static final String ID="id";
@@ -173,7 +173,7 @@ public interface I {
 		String NICK 								= 		"m_user_nick";					//用户昵称
 		String UN_READ_MSG_COUNT 					= 		"m_user_unread_msg_count";		//未读消息数量
 	}
-	
+
 	public static interface Contact {
 		String TABLE_NAME 							= 		"t_superwechat_contact";
 		String CONTACT_ID 							= 		"m_contact_id";					//主键
@@ -182,7 +182,7 @@ public interface I {
 		String CU_ID 								= 		"m_contact_cid";				//好友id
 		String CU_NAME 								= 		"m_contact_cname";				//好友账号
 	}
-	
+
 	public static interface Group {
 		String TABLE_NAME 							= 		"t_superwechat_group";
 		String GROUP_ID 							= 		"m_group_id";					// 主键
@@ -196,7 +196,7 @@ public interface I {
 		String IS_PUBLIC 							= 		"m_group_is_public";			//群组是否公开
 		String ALLOW_INVITES 						= 		"m_group_allow_invites";		//是否可以邀请
 	}
-	
+
 	public static interface Member {
 		String TABLE_NAME 							= 		"t_superwechat_member";
 		String MEMBER_ID 							= 		"m_member_id";					//主键
@@ -205,7 +205,7 @@ public interface I {
 		String GROUP_HX_ID 							= 		"m_member_group_hxid";			//群组环信id
 		String PERMISSION 							= 		"m_member_permission";			//用户对群组的权限\n0:普通用户\n1:群组所有者
 	}
-	
+
 	public static interface Avatar {
 		String TABLE_NAME 							= 		"t_superwechat_avatar";
 		String AVATAR_ID 							= 		"m_avatar_id";					//主键
@@ -215,7 +215,7 @@ public interface I {
 		String AVATAR_TYPE 							= 		"m_avatar_type";				//头像类型：\n0:用户头像\n1:群组头像
 		String UPDATE_TIME 							= 		"m_avatar_last_update_time";	//最后更新时间
 	}
-	
+
 	public static interface Location {
 		String TABLE_NAME 							= 		"t_superwechat_location";
 		String LOCATION_ID 							= 		"m_location_id";				//主键
@@ -227,12 +227,12 @@ public interface I {
 	}
 		public enum ActionType {
         ACTION_DOWNLOAD, ACTION_PULL_DOWN, ACTION_SCROLL
-    }    
+    }
 
     public final int NEW_GOOD=0;
     public final int CATEGORY_GOOD=1;
     public final int CAT_ID=0;
-    
+
     /**
      * 商品排序方式
      */
@@ -259,7 +259,7 @@ public interface I {
 	int AVATAR_TYPE_GROUP							=		1;								//群组头像
 	int GROUP_PUBLIC								=		1;								//公开群组
 	int GROUP_NO_PUBLIC								=		0;								//非公开群组
-	String SERVER_ROOT                              =       "http://192.168.1.65:9999/FuliCenterServer/Server";
+	String SERVER_ROOT                              =       "http://192.168.7.15:9999/FuLiCenterServer/Server";
 	String EQU                                      =       "=";                            //等号
 	String AND                                      =       "&";                            //&符号
 	String QUESTION									=       "?";                            //问号
@@ -424,7 +424,7 @@ public interface I {
     String DOWNLOAD_GROUP_AVATAR_URL                 =       I.SERVER_ROOT
             +  "?" + KEY_REQUEST + "=" + REQUEST_DOWNLOAD_GROUP_AVATAR + "&time=123" + "&" + AVATAR_TYPE + "=";
 	String REQUEST_FIND_CHARGE = "find_charge";
-    
+
     /** 从服务端查询精选首页的数据*/
     String REQUEST_FIND_BOUTIQUES="find_boutiques";
     /** 从服务端查询新品或精选的商品*/
@@ -432,10 +432,10 @@ public interface I {
 
     /** 从服务端下载tb_category_parent表的数据*/
     String REQUEST_FIND_CATEGORY_GROUP="find_category_group";
-    
+
     /** 从服务端下载tb_category_child表的数据*/
     String REQUEST_FIND_CATEGORY_CHILDREN="find_category_children";
-    
+
     /** 从服务端下载tb_category_good表的数据*/
     String REQUEST_FIND_GOOD_DETAILS="find_good_details";
 
@@ -444,7 +444,7 @@ public interface I {
 
     /** 下载指定小类别的颜色列表*/
     String REQUEST_FIND_COLOR_LIST="find_color_list";
-    
+
     /** 查询是否已收藏*/
     String REQUEST_IS_COLLECT="is_collect";
     /** 添加收藏*/
@@ -455,37 +455,37 @@ public interface I {
     String REQUEST_FIND_COLLECTS="find_collects";
     /** 下载收藏的商品数量信息*/
     String REQUEST_FIND_COLLECT_COUNT="find_collect_count";
-    
+
     String REQUEST_ADD_CART="add_cart";
-    
+
     String REQUEST_FIND_CARTS="find_carts";
 
     String REQUEST_DELETE_CART="delete_cart";
-    
+
     String REQUEST_UPDATE_CART="update_cart";
-    
+
     /**下载新品首页商品图片*/
     String REQUEST_DOWNLOAD_NEW_GOOD = "download_new_good";
-    
+
     /**下载商品属性颜色的图片*/
     String REQUEST_DOWNLOAD_COLOR_IMG = "download_color_img";
-    
+
     /** 下载商品相册图像的URL*/
     String DOWNLOAD_AVATAR_URL= I.SERVER_ROOT+
         "?request="+REQUEST_DOWNLOAD_AVATAR+"&avatar=";
-    
+
     /** 下载商品相册图像的请求*/
     String REQUEST_DOWNLOAD_ALBUM_IMG="download_album_img_url";
     /** 下载商品相册图像的接口*/
     String DOWNLOAD_ALBUM_IMG_URL= I.SERVER_ROOT+
         "?request="+REQUEST_DOWNLOAD_ALBUM_IMG+"&img_url=";
-    
+
     /** 下载精选首页图像的请求*/
     String REQUEST_DOWNLOAD_BOUTIQUE_IMG="download_boutique_img";
     /** 下载精选首页图像的接口*/
     String DOWNLOAD_BOUTIQUE_IMG_URL= I.SERVER_ROOT+
         "?request="+REQUEST_DOWNLOAD_BOUTIQUE_IMG+"&"+Boutique.IMAGE_URL+"=";
-    
+
     /** 下载分类商品大类图像的请求*/
     String REQUEST_DOWNLOAD_CATEGORY_GROUP_IMAGE="download_category_group_image";
     /** 下载分类商品大类图像的接口*/
@@ -499,14 +499,14 @@ public interface I {
     String DOWNLOAD_GOODS_THUMB_URL= I.SERVER_ROOT+
         "?request="+REQUEST_DOWNLOAD_GOODS_THUMB
         +"&"+Collect.GOODS_THUMB+"=";
-    
+
     /** 下载分类商品小类图像的请求*/
     String REQUEST_DOWNLOAD_CATEGORY_CHILD_IMAGE="download_category_child_image";
     /** 下载分类商品小类图像的接口*/
     String DOWNLOAD_DOWNLOAD_CATEGORY_CHILD_IMAGE_URL= I.SERVER_ROOT+
         "?request="+REQUEST_DOWNLOAD_CATEGORY_GROUP_IMAGE
         +"&"+D.CategoryChild.IMAGE_URL+"=";
-    
+
     String REQUEST_UPLOAD_NICK="upload_nick";
     //壹收款支付请求
     String REQUEST_PAY="pay";

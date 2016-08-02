@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import cn.ucai.fulicenter.I;
-import cn.ucai.fulicenter.SuperWeChatApplication;
+import cn.ucai.fulicenter.FuliCenterApplication;
 import cn.ucai.fulicenter.Utils;
 import cn.ucai.fulicenter.bean.Result;
 import cn.ucai.fulicenter.bean.UserAvatar;
@@ -21,7 +21,6 @@ public class DownloadContactListTask {
     private static final String TAG = DownloadContactListTask.class.getSimpleName();
     String userName;
     Context mContext;
-
     public DownloadContactListTask(Context context,String userName) {
         mContext = context;
         this.userName = userName;
@@ -34,21 +33,24 @@ public class DownloadContactListTask {
                 .execute(new OkHttpUtils2.OnCompleteListener<String>() {
                     @Override
                     public void onSuccess(String s) {
-                        Log.e(TAG, "s="+s);
+                        Log.e(TAG, "s=" + s);
                         Result result = Utils.getListResultFromJson(s, UserAvatar.class);
                         Log.e(TAG, "result=" + result);
-                        List<UserAvatar> list = (List<UserAvatar>) result.getRetData();
-                        if (list!=null&&list.size()>0) {
-                            Map<String, UserAvatar> userMap = SuperWeChatApplication.getInstance().getUserMap();
-                            for(UserAvatar u:list){
-                                userMap.put(u.getMUserName(), u);
+                        if (result != null) {
+                            List<UserAvatar> list = (List<UserAvatar>) result.getRetData();
+                            if (list != null && list.size() > 0) {
+                                Log.e(TAG,"result="+result);
+
+                                Map<String, UserAvatar> userMap = FuliCenterApplication.getInstance().getUserMap();
+                                for (UserAvatar u : list) {
+                                    userMap.put(u.getMUserName(), u);
+                                }
+                                Log.e(TAG, "list.size=" + list.size());
+                                FuliCenterApplication.getInstance().setUserList(list);
+                                mContext.sendStickyBroadcast(new Intent("update_contact_list"));
                             }
-                            Log.e(TAG, "list.size=" + list.size());
-                            SuperWeChatApplication.getInstance().setUserList(list);
-                            mContext.sendStickyBroadcast(new Intent("update_contact_list"));
                         }
                     }
-
                     @Override
                     public void onError(String error) {
                         Log.e(TAG, "error=" + error);

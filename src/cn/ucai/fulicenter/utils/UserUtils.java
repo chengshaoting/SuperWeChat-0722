@@ -6,17 +6,14 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import cn.ucai.fulicenter.FuliCenterApplication;
 import cn.ucai.fulicenter.I;
-import cn.ucai.fulicenter.SuperWeChatApplication;
 import cn.ucai.fulicenter.applib.controller.HXSDKHelper;
 import cn.ucai.fulicenter.DemoHXSDKHelper;
 import cn.ucai.fulicenter.R;
-import cn.ucai.fulicenter.bean.MemberUserAvatar;
 import cn.ucai.fulicenter.bean.UserAvatar;
 import cn.ucai.fulicenter.domain.User;
 import com.squareup.picasso.Picasso;
-
-import java.util.HashMap;
 
 public class UserUtils {
     private static final String TAG = UserUtils.class.getSimpleName();
@@ -82,7 +79,7 @@ public class UserUtils {
      * 设置当前用户头像
      */
     public static void setAppCurrentUserAvatar(ImageView imageView) {
-        String userName = SuperWeChatApplication.getInstance().getUserName();
+        String userName = FuliCenterApplication.getInstance().getUserName();
         if (userName != null && imageView != null) {
             setAppUserAvatar(null,userName,imageView);
         }
@@ -129,12 +126,12 @@ public class UserUtils {
     }
     
     public static void setAppCurrentUserNick(TextView textView){
-        UserAvatar user = SuperWeChatApplication.getInstance().getUser();
+        UserAvatar user = FuliCenterApplication.getInstance().getUser();
         if (textView != null && user!=null) {
             textView.setText(user.getMUserNick());
 
         } else {
-           textView.setText(SuperWeChatApplication.currentUserNick);
+           textView.setText(FuliCenterApplication.currentUserNick);
         }
     }
 
@@ -175,55 +172,10 @@ public class UserUtils {
 
 
     private static UserAvatar getAppUserInfo(String username) {
-        UserAvatar user = SuperWeChatApplication.getInstance().getUserMap().get(username);
+        UserAvatar user = FuliCenterApplication.getInstance().getUserMap().get(username);
         if(user == null){
             user = new UserAvatar(username);
         }
         return user;
-    }
-    public static MemberUserAvatar getAppMemberInfo(String hxid,String username){
-        MemberUserAvatar member=null;
-        HashMap<String, MemberUserAvatar> members =
-                SuperWeChatApplication.getInstance().getMemberMap().get(hxid);
-        if (members==null||members.size()<0){
-            return null;
-        }else {
-            member = members.get(username);
-        }
-        return member;
-    }
-
-    public static void setAppGroupAvatar(Context context, String username, ImageView avatar) {
-        String path = "";
-        if(path != null && username != null){
-            path = getGroupAvatarPath(username);
-            Log.e(TAG, "path=" + path);
-            Picasso.with(context).load(path).placeholder(R.drawable.group_icon).into(avatar);
-        }else{
-            Picasso.with(context).load(R.drawable.group_icon).into(avatar);
-        }
-    }
-
-    private static String getGroupAvatarPath(String username) {
-
-            StringBuilder path = new StringBuilder(I.SERVER_ROOT);
-            path.append(I.QUESTION).append(I.KEY_REQUEST)
-                    .append(I.EQU).append(I.REQUEST_DOWNLOAD_AVATAR)
-                    .append(I.AND)
-                    .append(I.NAME_OR_HXID).append(I.EQU).append(username)
-                    .append(I.AND)
-                    .append(I.AVATAR_TYPE).append(I.EQU).append(I.AVATAR_TYPE_GROUP_PATH);
-            return path.toString();
-
-    }
-
-    public static void setAppMemberNick(String hxid, String username, TextView textView) {
-        MemberUserAvatar member = getAppMemberInfo(hxid, username);
-        Log.e(TAG,"member="+member);
-        if(member!=null&&member.getMUserNick()!=null){
-            textView.setText(member.getMUserNick());
-        }else {
-            textView.setText(username);
-        }
     }
 }

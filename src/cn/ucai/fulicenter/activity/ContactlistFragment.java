@@ -51,8 +51,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import cn.ucai.fulicenter.FuliCenterApplication;
 import cn.ucai.fulicenter.I;
-import cn.ucai.fulicenter.SuperWeChatApplication;
 import cn.ucai.fulicenter.applib.controller.HXSDKHelper;
 import cn.ucai.fulicenter.applib.controller.HXSDKHelper.HXSyncListener;
 import com.easemob.chat.EMContactManager;
@@ -221,7 +221,6 @@ public class ContactlistFragment extends Fragment {
 					startActivity(new Intent(getActivity(), NewFriendsMsgActivity.class));
 				} else if (Constant.GROUP_USERNAME.equals(username)) {
 					// 进入群聊列表页面
-					startActivity(new Intent(getActivity(), GroupsActivity.class));
 				} else if(Constant.CHAT_ROOM.equals(username)){
 					//进入聊天室列表页面
 				    startActivity(new Intent(getActivity(), PublicChatRoomsActivity.class));
@@ -337,21 +336,21 @@ public class ContactlistFragment extends Fragment {
 		pd.setCanceledOnTouchOutside(false);
 		pd.show();
 		//删除好友数据（本地）
-		final UserAvatar user = SuperWeChatApplication.getInstance().getUser();
+		final UserAvatar user = FuliCenterApplication.getInstance().getUser();
 		final OkHttpUtils2<String> utils2 = new OkHttpUtils2<>();
 		utils2.setRequestUrl(I.REQUEST_DELETE_CONTACT)
-				.addParam(I.Contact.USER_NAME, SuperWeChatApplication.getInstance().getUserName())
+				.addParam(I.Contact.USER_NAME, FuliCenterApplication.getInstance().getUserName())
 				.addParam(I.Contact.CU_NAME,toBeProcessUsername)
 				.targetClass(String.class)
 				.execute(new OkHttpUtils2.OnCompleteListener<String>() {
 					@Override
 					public void onSuccess(String s) {
 						//删除好友数据（远端）
-						SuperWeChatApplication.getInstance().getUserMap().remove(toBeProcessUsername);
-						SuperWeChatApplication.getInstance().getUserMap().remove(user.getMUserName());
+						FuliCenterApplication.getInstance().getUserMap().remove(toBeProcessUsername);
+						FuliCenterApplication.getInstance().getUserMap().remove(user.getMUserName());
 
-						SuperWeChatApplication.getInstance().getUserList().remove(user);
-						SuperWeChatApplication.getInstance().getUserList().remove(toBeProcessUser);
+						FuliCenterApplication.getInstance().getUserList().remove(user);
+						FuliCenterApplication.getInstance().getUserList().remove(toBeProcessUser);
 					}
 
 					@Override

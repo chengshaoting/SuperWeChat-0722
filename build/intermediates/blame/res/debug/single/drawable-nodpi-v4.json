@@ -16,12 +16,16 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-nodpi\\mobile.png"
     },
     {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4\\find_icon.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-nodpi\\find_icon.png"
+    },
+    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4\\empty_photo.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-nodpi\\empty_photo.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4\\find_icon.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-nodpi\\find_icon.png"
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4\\splash.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-nodpi\\splash.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-nodpi-v4\\find_friends.png",

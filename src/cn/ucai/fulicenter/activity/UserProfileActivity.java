@@ -26,8 +26,8 @@ import android.widget.Toast;
 
 import com.easemob.EMValueCallBack;
 
+import cn.ucai.fulicenter.FuliCenterApplication;
 import cn.ucai.fulicenter.I;
-import cn.ucai.fulicenter.SuperWeChatApplication;
 import cn.ucai.fulicenter.Utils;
 import cn.ucai.fulicenter.applib.controller.HXSDKHelper;
 import com.easemob.chat.EMChatManager;
@@ -77,10 +77,9 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 	}
 	
 	private void initListener() {
-		final String haha=SuperWeChatApplication.getInstance().getUserName();
+		final String haha= FuliCenterApplication.getInstance().getUserName();
 		Intent intent = getIntent();
 		String username = intent.getStringExtra("username");
-		String hxid = intent.getStringExtra("groupId");
 		boolean enableUpdate = intent.getBooleanExtra("setting", true);
 		if (enableUpdate) {
 			headPhotoUpdate.setVisibility(View.VISIBLE);
@@ -92,27 +91,16 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 		} else {
 			headPhotoUpdate.setVisibility(View.GONE);
 			iconRightArrow.setVisibility(View.INVISIBLE);
-			UserAvatar user = SuperWeChatApplication.getInstance().getUser();
+			UserAvatar user = FuliCenterApplication.getInstance().getUser();
 			UserUtils.setAppUserAvatar(this,user.getMUserName(),headAvatar);
 			Log.e(TAG, "ksdfsdfdsfsd=" + user.toString());
 			tvNickName.setText(user.getMUserNick());
 		}
-			if (username == null||username.equals(SuperWeChatApplication.getInstance().getUserName())) {
+			if (username == null||username.equals(FuliCenterApplication.getInstance().getUserName())) {
 			tvUsername.setText(EMChatManager.getInstance().getCurrentUser());
 		   UserUtils.setAppCurrentUserNick(tvNickName);
 //				UserUtils.setAppUserNick(haha,tvNickName);
 				UserUtils.setCurrentUserAvatar(this,headAvatar);
-		}  else if(hxid!=null){
-				tvUsername.setText(username);
-				UserUtils.setAppMemberNick(hxid,username,tvNickName);
-				UserUtils.setAppUserAvatar(this,username,headAvatar);
-			}else {
-			tvUsername.setText(username);
-//			UserUtils.setUserNick(username, tvNickName);
-//			UserUtils.setUserAvatar(this, username, headAvatar);
-			UserUtils.setAppUserNick(username,tvNickName);
-			UserUtils.setAppUserAvatar(this,username,headAvatar);
-//			asyncFetchUserInfo(username);
 		}
 	}
 
@@ -125,9 +113,9 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 			break;
 		case R.id.rl_nickname:
 			final EditText editText = new EditText(this);
-			Log.e(TAG,"nick="+SuperWeChatApplication.getInstance().getUser());
-			Log.e(TAG,"nick="+SuperWeChatApplication.currentUserNick);
-//			editText.setText(SuperWeChatApplication.getInstance().getUser().getMUserNick());
+			Log.e(TAG,"nick="+ FuliCenterApplication.getInstance().getUser());
+			Log.e(TAG,"nick="+ FuliCenterApplication.currentUserNick);
+//			editText.setText(FuliCenterApplication.getInstance().getUser().getMUserNick());
 			new AlertDialog.Builder(this).setTitle(R.string.setting_nickname).setIcon(android.R.drawable.ic_dialog_info).setView(editText)
 					.setPositiveButton(R.string.dl_ok, new DialogInterface.OnClickListener() {
 
@@ -174,7 +162,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 	private void updateUserNick(final String nickname){
 		final OkHttpUtils2<String> utils2 = new OkHttpUtils2<>();
 		utils2.setRequestUrl(I.REQUEST_UPDATE_USER_NICK)
-				.addParam(I.User.USER_NAME,SuperWeChatApplication.getInstance().getUserName())
+				.addParam(I.User.USER_NAME, FuliCenterApplication.getInstance().getUserName())
 				.addParam(I.User.NICK,nickname)
 				.targetClass(String.class)
 				.execute(new OkHttpUtils2.OnCompleteListener<String>() {
@@ -184,8 +172,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 						Result result = Utils.getResultFromJson(s, UserAvatar.class);
 						if (result != null && result.isRetMsg()) {
 							UserAvatar user = (UserAvatar) result.getRetData();
-							SuperWeChatApplication.currentUserNick=user.getMUserNick();
-							SuperWeChatApplication.getInstance().setUser(user);
+							FuliCenterApplication.currentUserNick=user.getMUserNick();
+							FuliCenterApplication.getInstance().setUser(user);
 							UserDao dao = new UserDao(UserProfileActivity.this);
 							dao.updateUserNick(user);
 							updateRemoteNick(nickname);
@@ -298,7 +286,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 	}
 	private void uploadUserAvatar(final Intent data){
 		File file = new File(OnSetAvatarListener.getAvatarPath(UserProfileActivity.this,I.AVATAR_TYPE_USER_PATH),avatarName+I.AVATAR_SUFFIX_JPG);
-		String userName = SuperWeChatApplication.getInstance().getUserName();
+		String userName = FuliCenterApplication.getInstance().getUserName();
 		final OkHttpUtils2<Result> utils = new OkHttpUtils2<>();
 		utils.setRequestUrl(I.REQUEST_UPLOAD_AVATAR)
 				.addParam(I.NAME_OR_HXID,userName)

@@ -12,18 +12,16 @@ import android.widget.TextView;
 
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMGroupManager;
-
 import cn.ucai.fulicenter.DemoHXSDKHelper;
 import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.R;
-import cn.ucai.fulicenter.SuperWeChatApplication;
+import cn.ucai.fulicenter.FuliCenterApplication;
 import cn.ucai.fulicenter.Utils;
 import cn.ucai.fulicenter.bean.Result;
 import cn.ucai.fulicenter.bean.UserAvatar;
 import cn.ucai.fulicenter.data.OkHttpUtils2;
 import cn.ucai.fulicenter.db.UserDao;
 import cn.ucai.fulicenter.task.DownloadContactListTask;
-import cn.ucai.fulicenter.task.DownloadGroupListTask;
 
 /**
  * 开屏页
@@ -63,46 +61,43 @@ public class SplashActivity extends BaseActivity {
 					long start = System.currentTimeMillis();
 					EMGroupManager.getInstance().loadAllGroups();
 					EMChatManager.getInstance().loadAllConversations();
-					String userName = SuperWeChatApplication.getInstance().getUserName();
+					String userName = FuliCenterApplication.getInstance().getUserName();
 					Log.e(TAG, "userName=" + userName);
 					UserDao dao = new UserDao(SplashActivity.this);
 					UserAvatar user = dao.getUserAvatar(userName);
 					Log.e(TAG, "user=" + user);
-					if(user==null){
-						final OkHttpUtils2<String> utils = new OkHttpUtils2<String>();
+					//闪屏优化
+					if (user == null) {final OkHttpUtils2<String> utils = new OkHttpUtils2<String>();
 						utils.setRequestUrl(I.REQUEST_FIND_USER)
-								.addParam(I.Contact.USER_NAME,userName)
+								.addParam(I.User.USER_NAME,userName)
 								.targetClass(String.class)
 								.execute(new OkHttpUtils2.OnCompleteListener<String>() {
 									@Override
 									public void onSuccess(String s) {
-										Log.e(TAG, "s="+s);
+										Log.e(TAG, "s" + s);
 										Result result = Utils.getResultFromJson(s, UserAvatar.class);
-										Log.e(TAG, "result=" + result);
-										if (result!=null&&result.isRetMsg()) {
+										if (result != null && result.isRetMsg()) {
 											UserAvatar user = (UserAvatar) result.getRetData();
-											Log.e(TAG,"user="+user);
+											Log.e(TAG, "user=" + user);
 											if (user != null) {
-												SuperWeChatApplication.getInstance().setUser(user);
-												SuperWeChatApplication.currentUserNick = user.getMUserNick();
+												FuliCenterApplication.getInstance().setUser(user);
+												FuliCenterApplication.currentUserNick = user.getMUserNick();
 											}
-
-											}
+									}
 									}
 
 									@Override
 									public void onError(String error) {
-										Log.e(TAG, "error=" + error);
+										Log.e(TAG, "error+" + error);
 									}
 								});
 
-					} else if (user != null) {
-						SuperWeChatApplication.getInstance().setUser(user);
-						SuperWeChatApplication.currentUserNick = user.getMUserNick();
 					}
-
+					else if(user != null){
+						FuliCenterApplication.getInstance().setUser(user);
+						FuliCenterApplication.currentUserNick = user.getMUserNick();
+					}
 					new DownloadContactListTask(SplashActivity.this,userName).execute();
-					new DownloadGroupListTask(SplashActivity.this, userName).execute();
 //					闪屏
 
 					long costTime = System.currentTimeMillis() - start;
@@ -115,14 +110,14 @@ public class SplashActivity extends BaseActivity {
 						}
 					}
 					//进入主页面
-					startActivity(new Intent(SplashActivity.this, MainActivity.class));
+					startActivity(new Intent(SplashActivity.this, FuliCenterActivity.class));
 					finish();
 				}else {
 					try {
 						Thread.sleep(sleepTime);
 					} catch (InterruptedException e) {
 					}
-					startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+					startActivity(new Intent(SplashActivity.this, FuliCenterActivity.class));
 					finish();
 				}
 			}

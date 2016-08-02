@@ -28,12 +28,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\mm_listitem_simple.9.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_4.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_4.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_27.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_27.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_4.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_4.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_pwdpay_banklist_bg.9.png",
@@ -132,12 +132,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\default_image.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\record_animate_05.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\record_animate_05.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\search_clear_pressed.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\search_clear_pressed.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\record_animate_05.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\record_animate_05.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\input_bar_bg_normal.9.png",
@@ -160,24 +160,24 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\show_head_toast_bg.9.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\to_group_details_normal.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\to_group_details_normal.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\contactlogo.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\contactlogo.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\to_group_details_normal.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\to_group_details_normal.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\baidupay.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\baidupay.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatfrom_bg_focused.9.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chatfrom_bg_focused.9.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\video_recorder_start_btn.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\video_recorder_start_btn.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatfrom_bg_focused.9.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chatfrom_bg_focused.9.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wechat.png",
@@ -260,20 +260,20 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_8.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatting_setmode_keyboard_btn_normal.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chatting_setmode_keyboard_btn_normal.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\splash.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\splash.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatting_setmode_keyboard_btn_normal.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chatting_setmode_keyboard_btn_normal.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\alipay.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\alipay.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\menu_item_collect_selected.png",
@@ -308,12 +308,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\iconfont_xinxifill.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatting_biaoqing_btn_enable.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chatting_biaoqing_btn_enable.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_22.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_22.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatting_biaoqing_btn_enable.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chatting_biaoqing_btn_enable.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\logo_uidemo.png",
@@ -432,24 +432,24 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ebpay_help_date.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_7.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_7.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_info_hover.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_info_hover.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_7.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_7.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_banklogo_defult.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_banklogo_defult.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_1.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_1.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_dashed_shape_press.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_dashed_shape_press.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_1.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_1.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_6.png",
@@ -504,16 +504,16 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_pwdpay_submit_bg_pressed.9.png"
     },
     {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tb_icon_home_qrcode_gray.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\tb_icon_home_qrcode_gray.png"
+    },
+    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\mm_title_act_btn_normal.9.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\mm_title_act_btn_normal.9.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\unread_count_bg.9.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\unread_count_bg.9.png"
-    },
-    {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\tb_icon_home_qrcode_gray.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\tb_icon_home_qrcode_gray.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bg_share_sel.png",
@@ -524,16 +524,16 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\confirm_dialog_bg2.9.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_pwd.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\icon_pwd.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_refresh_loading_small_img.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_refresh_loading_small_img.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_pwdpay_close_pressed.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_pwdpay_close_pressed.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_pwd.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\icon_pwd.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_result_success.png",
@@ -660,12 +660,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_pwdpay_submit_bg_normal.9.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_right_arrow.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ic_right_arrow.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_six_no_bg_midle.9.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_six_no_bg_midle.9.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_right_arrow.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ic_right_arrow.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\menu_item_conversation_normal.png",
@@ -724,12 +724,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chatfrom_voice_playing_f3.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatting_setmode_voice_btn_pressed.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chatting_setmode_voice_btn_pressed.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_12.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_12.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chatting_setmode_voice_btn_pressed.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chatting_setmode_voice_btn_pressed.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_account.png",
@@ -776,12 +776,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\menu_item_cart_selected.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\mm_listitem_grey_normal.9.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\mm_listitem_grey_normal.9.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_5.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_5.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\mm_listitem_grey_normal.9.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\mm_listitem_grey_normal.9.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\delete.png",
@@ -868,12 +868,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_18.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\record_animate_08.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\record_animate_08.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_bottom_1_hover.9.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_bottom_1_hover.9.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\record_animate_08.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\record_animate_08.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\menu_item_conversation_selected.png",
@@ -884,20 +884,20 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\bg_cart_selected.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\record_animate_12.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\record_animate_12.png"
-    },
-    {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chat_video_mask_to.9.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chat_video_mask_to.9.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_35.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_35.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_delete_normal.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_delete_normal.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\chat_video_mask_to.9.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\chat_video_mask_to.9.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\record_animate_12.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\record_animate_12.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dx_checkbox_off.png",
@@ -912,12 +912,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_result_fail.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\create_group.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\create_group.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_delete_pressed.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_delete_pressed.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\create_group.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\create_group.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ebpay_sec_icon.png",
@@ -928,24 +928,24 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\ee_10.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\smiley_minus_btn_nor.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\smiley_minus_btn_nor.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\iconfont_xinxi.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\iconfont_xinxi.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\smiley_minus_btn_nor.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\smiley_minus_btn_nor.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\wallet_base_info.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\wallet_base_info.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\msg_state_fail_resend.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\msg_state_fail_resend.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\smiley_add_btn_nor.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\smiley_add_btn_nor.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\msg_state_fail_resend.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-hdpi\\msg_state_fail_resend.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ee_11.png",

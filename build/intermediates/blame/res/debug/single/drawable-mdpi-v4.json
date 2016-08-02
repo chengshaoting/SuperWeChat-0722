@@ -172,12 +172,12 @@
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-mdpi\\menu_item_collect_normal.png"
     },
     {
-        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
-        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-mdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\expand_on.png",
         "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-mdpi\\expand_on.png"
+    },
+    {
+        "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\res\\drawable-mdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\sks\\AndroidStudioProjects\\superwechat1\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\back_nomal.png",
