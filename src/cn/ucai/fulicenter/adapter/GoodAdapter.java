@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import cn.ucai.fulicenter.I;
@@ -39,6 +41,15 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.mGoodsList = mGoodsList;
         mGoodsList.addAll(mGoodsList);
         sortByAddTime();
+    }
+
+    private void sortByAddTime() {
+        Collections.sort(mGoodsList, new Comparator<NewGoodBean>() {
+            @Override
+            public int compare(NewGoodBean newGoodBean, NewGoodBean t1) {
+                return (int) (Long.valueOf(newGoodBean.getAddTime())-Long.valueOf(t1.getAddTime()));
+            }
+        });
     }
 
     public boolean isMore() {
