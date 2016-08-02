@@ -37,6 +37,8 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public GoodAdapter(Context mContext, ArrayList<NewGoodBean> mGoodsList) {
         this.mContext = mContext;
         this.mGoodsList = mGoodsList;
+        mGoodsList.addAll(mGoodsList);
+        sortByAddTime();
     }
 
     public boolean isMore() {
@@ -63,7 +65,7 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 holder=new NewGoodsViewHolder(layout);
                 break;
         }
-        return null;
+        return holder;
     }
 
     @Override
@@ -82,7 +84,7 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 .addParam("img_url",goods.getGoodsImg())
                 .width(180)
                 .height(200)
-                .imageView(viewHolder.ivNewGoods)
+                .imageView(viewHolder.ivGoodthumb)
                 .defaultPicture(R.drawable.default_image)
                 .listener(parent)
                 .showImage(mContext);
@@ -112,12 +114,12 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     class NewGoodsViewHolder extends RecyclerView.ViewHolder{
-        ImageView ivNewGoods;
+        ImageView ivGoodthumb;
         TextView tvGoodName,tvPrice;
 
         public NewGoodsViewHolder(View itemView) {
             super(itemView);
-            ivNewGoods= (ImageView) itemView.findViewById(R.id.niv_good_thumb);
+            ivGoodthumb= (ImageView) itemView.findViewById(R.id.niv_good_thumb);
             tvGoodName= (TextView) itemView.findViewById(R.id.tv_good_name);
             tvPrice= (TextView) itemView.findViewById(R.id.tv_good_price);
         }
