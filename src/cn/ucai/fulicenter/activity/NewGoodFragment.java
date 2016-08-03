@@ -35,7 +35,7 @@ public class NewGoodFragment extends Fragment {
     static final int ACTION_PULL_UP=2;
     static final int PAGE_SIZE=10;
     static final int CAT_ID=0;
-    int mPageId=1;
+    int mPageId=0;
     GoodAdapter mAdapter;
     RecyclerView mrvNewGoods;
     SwipeRefreshLayout msrl;
@@ -69,7 +69,7 @@ public class NewGoodFragment extends Fragment {
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 if(newState==RecyclerView.SCROLL_STATE_IDLE&&lastPosition>=mAdapter.getItemCount()-1&&mAdapter.isMore()){
-                    mPageId++;
+                    mPageId+=lastPosition;
                     downloadNewGoodsList(ACTION_PULL_UP,mPageId);
                 }
             }
