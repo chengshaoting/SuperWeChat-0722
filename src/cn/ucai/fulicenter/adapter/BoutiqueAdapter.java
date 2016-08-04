@@ -18,6 +18,7 @@ import cn.ucai.fulicenter.D;
 import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.ImageLoader;
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.activity.BoutiqueChildActivity;
 import cn.ucai.fulicenter.activity.GoodDetailsActivity;
 import cn.ucai.fulicenter.bean.BoutiqueBean;
 import cn.ucai.fulicenter.bean.NewGoodBean;
@@ -96,8 +97,8 @@ public class BoutiqueAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         viewHolder.layout_good.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContext.startActivity(new Intent(mContext, GoodDetailsActivity.class)
-                        .putExtra(D.GoodDetails.KEY_GOODS_ID,goods.getId()));
+                mContext.startActivity(new Intent(mContext,BoutiqueChildActivity.class)
+                        .putExtra(D.GoodDetails.KEY_GOODS_ID,goods.getId()).putExtra("hahaha",goods.getTitle()));
             }
         });
     }
