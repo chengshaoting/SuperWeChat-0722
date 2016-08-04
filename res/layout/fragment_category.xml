@@ -1,0 +1,17 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.ucai.fulicenter.activity.CategoryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ExpandableListView
+        android:id="@+id/elvLayout"
+        android:layout_marginTop="10dp"
+        android:dividerHeight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment"
+        android:background="@color/list_background"/>
+
+</RelativeLayout>
