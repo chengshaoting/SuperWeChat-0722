@@ -1,11 +1,13 @@
 package cn.ucai.fulicenter.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,9 +15,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import cn.ucai.fulicenter.D;
 import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.ImageLoader;
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.activity.GoodDetailsActivity;
 import cn.ucai.fulicenter.bean.NewGoodBean;
 
 /**
@@ -86,8 +90,8 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
               return;
           }
         NewGoodsViewHolder viewHolder = (NewGoodsViewHolder) holder;
-        NewGoodBean goods = mGoodsList.get(position);
-        viewHolder.tvGoodName.setText(goods.getGoodsBrief());
+        final NewGoodBean goods = mGoodsList.get(position);
+        viewHolder.tvGoodName.setText(goods.getGoodsName());
         viewHolder.tvPrice.setText(goods.getCurrencyPrice());
         ImageLoader.build()
                 .url(I.SERVER_ROOT)
@@ -99,6 +103,13 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 .defaultPicture(R.drawable.default_image)
                 .listener(parent)
                 .showImage(mContext);
+        viewHolder.mLinearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContext.startActivity(new Intent(mContext, GoodDetailsActivity.class)
+                        .putExtra(D.GoodDetails.KEY_GOODS_ID,goods.getGoodsId()));
+            }
+        });
     }
 
     @Override
@@ -127,12 +138,13 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     class NewGoodsViewHolder extends RecyclerView.ViewHolder{
         ImageView ivGoodthumb;
         TextView tvGoodName,tvPrice;
-
+        LinearLayout mLinearLayout;
         public NewGoodsViewHolder(View itemView) {
             super(itemView);
             ivGoodthumb= (ImageView) itemView.findViewById(R.id.niv_good_thumb);
             tvGoodName= (TextView) itemView.findViewById(R.id.tv_good_name);
             tvPrice= (TextView) itemView.findViewById(R.id.tv_good_price);
+            mLinearLayout= (LinearLayout) itemView.findViewById(R.id.layout_good);
         }
     }
     class FooterViewHlder extends RecyclerView.ViewHolder {

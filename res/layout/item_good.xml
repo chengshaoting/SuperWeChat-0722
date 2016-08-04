@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/layout_good"
+    >
+    <ImageView
+        android:id="@+id/niv_good_thumb"
+        android:layout_width="180dp"
+        android:layout_height="250dp"
+        android:src="@drawable/nopic"/>
+    <TextView
+        android:id="@+id/tv_good_name"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="商品名称"
+        android:textSize="20dp"/>
+    <TextView
+        android:id="@+id/tv_good_price"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:textColor="#f30"
+        android:textSize="20dp"
+        android:text="$399.99"/>
+
+</LinearLayout>

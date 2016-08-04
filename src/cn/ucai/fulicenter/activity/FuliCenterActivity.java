@@ -45,9 +45,10 @@ public class FuliCenterActivity extends BaseActivity {
     }
 
     private void initFragment() {
-        mFragment = new Fragment[2];
+        mFragment = new Fragment[3];
         mFragment[0] = new NewGoodFragment();
         mFragment[1] = new BoutiqueFragment();
+        mFragment[2] = new CategoryFragment();
 
     }
     class ViewPageAdapter extends FragmentPagerAdapter {
@@ -100,6 +101,7 @@ public class FuliCenterActivity extends BaseActivity {
                 break;
             case R.id.rbCategory:
                 index=2;
+                mViewPager.setCurrentItem(2);
                 break;
             case R.id.rbCart:
                 index=3;

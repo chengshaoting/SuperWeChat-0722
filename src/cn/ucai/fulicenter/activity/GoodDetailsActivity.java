@@ -43,10 +43,9 @@ public class GoodDetailsActivity extends Activity {
         setContentView(R.layout.activity_good_details);
         initView();
         initData();
-        setListener();
+        getGoodDetailsByGoodId();
     }
-
-    private void setListener() {
+    private void getGoodDetailsByGoodId() {
         final OkHttpUtils2<String> utils = new OkHttpUtils2<>();
         utils.setRequestUrl(I.REQUEST_FIND_GOOD_DETAILS)
                 .addParam(I.Cart.GOODS_ID,String.valueOf(mGoodId))
@@ -62,17 +61,13 @@ public class GoodDetailsActivity extends Activity {
                         }else {
                             Toast.makeText(getApplicationContext(),"获取信息失败",Toast.LENGTH_LONG).show();
                         }
-
                     }
-
                     @Override
                     public void onError(String error) {
                         Toast.makeText(getApplicationContext(),"获取信息失败",Toast.LENGTH_LONG).show();
-
                     }
                 });
     }
-
     private void showGoodDetails(GoodDetailsBean goodDetailsBean) {
         tvGoodEnglishName.setText(goodDetailsBean.getGoodsEnglishName());
         tvGoodName.setText(goodDetailsBean.getGoodsName());
