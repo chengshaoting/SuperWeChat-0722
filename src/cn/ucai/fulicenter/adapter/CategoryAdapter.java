@@ -19,6 +19,7 @@ import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.ImageLoader;
 import cn.ucai.fulicenter.R;
 import cn.ucai.fulicenter.activity.BoutiqueChildActivity;
+import cn.ucai.fulicenter.activity.CategoryChildActivity;
 import cn.ucai.fulicenter.bean.CategoryChildBean;
 import cn.ucai.fulicenter.bean.CategoryGroupBean;
 
@@ -133,7 +134,7 @@ public class CategoryAdapter extends BaseExpandableListAdapter {
         holder.layoutChild.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContext.startActivity(new Intent(mContext, BoutiqueChildActivity.class).putExtra(D.NewGood.KEY_GOODS_ID,child.getId()).putExtra("TITLE",child.getName()));
+                mContext.startActivity(new Intent(mContext, CategoryChildActivity.class).putExtra(I.NewAndBoutiqueGood.CAT_ID,child.getId()).putExtra("TITLE",child.getName()));
                 Log.e(TAG,"child.getId="+child.getId());
             }
         });
