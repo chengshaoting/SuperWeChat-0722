@@ -35,6 +35,7 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     boolean more;
 
     static final int ITEM_GOODS=1;
+     int sortBy;
 
     public void setFooterText(String footerText) {
         this.footerText = footerText;
@@ -44,7 +45,6 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         this.mContext = mContext;
         this.mGoodsList = mGoodsList;
         mGoodsList.addAll(mGoodsList);
-        sortByAddTime();
     }
 
     private void sortByAddTime() {
@@ -54,6 +54,11 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 return (int) (Long.valueOf(newGoodBean.getAddTime())-Long.valueOf(t1.getAddTime()));
             }
         });
+    }
+    public void setSortBy(int sortBy){
+        this.sortBy=sortBy;
+        sortBy();
+        notifyDataSetChanged();
     }
 
     public boolean isMore() {
@@ -153,5 +158,32 @@ public class GoodAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             super(itemView);
             tvFooter= (TextView) itemView.findViewById(R.id.tvFooter);
         }
+    }
+    private void sortBy(){
+        Collections.sort(mGoodsList, new Comparator<NewGoodBean>() {
+            @Override
+            public int compare(NewGoodBean goodLeft, NewGoodBean goodRight) {
+                int result=0;
+                switch (sortBy){
+                    case I.SORT_BY_ADDTIME_DESC:
+                        result= (int) (Long.valueOf(goodRight.getAddTime())-Long.valueOf(goodLeft.getAddTime()));
+                        break;
+                    case I.SORT_BY_ADDTIME_ASC:
+                        result= (int) (Long.valueOf(goodLeft.getAddTime())-Long.valueOf(goodRight.getAddTime()));
+                        break;
+                    case I.SORT_BY_PRICE_DESC:
+                        result=convertPrice(goodRight.getCurrencyPrice())-convertPrice(goodLeft.getCurrencyPrice());
+                        break;
+                    case I.SORT_BY_PRICE_ASC:
+                        result=convertPrice(goodLeft.getCurrencyPrice())-convertPrice(goodRight.getCurrencyPrice());
+                        break;
+                }
+                return result;
+            }
+            private int convertPrice(String price){
+                price = price.substring(1);
+                return Integer.valueOf(price);
+            }
+        });
     }
 }

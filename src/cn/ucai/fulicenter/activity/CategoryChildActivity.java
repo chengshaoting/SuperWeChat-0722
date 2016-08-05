@@ -1,17 +1,21 @@
 package cn.ucai.fulicenter.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import cn.ucai.fulicenter.D;
 import cn.ucai.fulicenter.I;
@@ -38,11 +42,17 @@ public class CategoryChildActivity extends BaseActivity {
     TextView mtvRefreshHint,tvTitle;
     GridLayoutManager mLayoutManager;
 
+    Button btnSortPrice,btnSortAddTime;
+    boolean mSortPriceAsc;
+    boolean mSortAddTimeAsc;
+    int sortBy;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_child);
         mContext = this;
+        sortBy = I.SORT_BY_ADDTIME_DESC;
         initView();
         initData();
         setListener();
@@ -50,6 +60,9 @@ public class CategoryChildActivity extends BaseActivity {
     private void setListener() {
         setDownListener();
         setDownUpListener();
+        SortStatusChangedListener listener = new SortStatusChangedListener();
+        btnSortPrice.setOnClickListener(listener);
+        btnSortAddTime.setOnClickListener(listener);
     }
 
     private void setDownUpListener() {
@@ -154,5 +167,40 @@ public class CategoryChildActivity extends BaseActivity {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         String hahaha = getIntent().getStringExtra("TITLE");
         tvTitle.setText(hahaha);
+        btnSortAddTime= (Button) findViewById(R.id.btn_sort_addTime);
+        btnSortPrice= (Button) findViewById(R.id.btn_sort_price);
+
+    }
+    private void sortByAddTime(){
+        Collections.sort(mGoodsList, new Comparator<NewGoodBean>() {
+            @Override
+            public int compare(NewGoodBean goodLeft, NewGoodBean goodRight) {
+                return (int) (Long.valueOf(goodRight.getAddTime())-Long.valueOf(goodLeft.getAddTime()));
+            }
+        });
+    }
+    class SortStatusChangedListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.btn_sort_price:
+                    if(mSortPriceAsc){
+                        sortBy=I.SORT_BY_PRICE_ASC;
+                    }else {
+                        sortBy=I.SORT_BY_PRICE_DESC;
+                    }
+                    mSortPriceAsc=!mSortPriceAsc;
+                    break;
+                case R.id.btn_sort_addTime:
+                    if(mSortAddTimeAsc){
+                        sortBy=I.SORT_BY_ADDTIME_ASC;
+                    }else {
+                        sortBy=I.SORT_BY_ADDTIME_DESC;
+                    }
+                    mSortAddTimeAsc = !mSortAddTimeAsc;
+                    break;
+            }
+            mAdapter.setSortBy(sortBy);
+        }
     }
 }
