@@ -2,6 +2,7 @@ package cn.ucai.fulicenter.activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
@@ -179,6 +180,14 @@ public class CategoryChildActivity extends BaseActivity {
             }
         });
     }
+    //改变箭头方向
+    private void changImage(int drawableId,Button btn){
+        Drawable drawable1 = getResources().getDrawable(drawableId);
+        if(drawable1!=null){
+            drawable1.setBounds(0,0,drawable1.getMinimumWidth(),drawable1.getMinimumHeight());
+            btn.setCompoundDrawables(null,null,drawable1,null);
+        }
+    }
     class SortStatusChangedListener implements View.OnClickListener{
         @Override
         public void onClick(View v) {
@@ -186,16 +195,21 @@ public class CategoryChildActivity extends BaseActivity {
                 case R.id.btn_sort_price:
                     if(mSortPriceAsc){
                         sortBy=I.SORT_BY_PRICE_ASC;
+                        changImage(R.drawable.arrow_order_up,btnSortPrice);
                     }else {
                         sortBy=I.SORT_BY_PRICE_DESC;
+                        changImage(R.drawable.arrow_order_down,btnSortPrice);
                     }
                     mSortPriceAsc=!mSortPriceAsc;
                     break;
                 case R.id.btn_sort_addTime:
                     if(mSortAddTimeAsc){
                         sortBy=I.SORT_BY_ADDTIME_ASC;
+                        changImage(R.drawable.arrow_order_up,btnSortAddTime);
                     }else {
                         sortBy=I.SORT_BY_ADDTIME_DESC;
+                        changImage(R.drawable.arrow_order_down,btnSortAddTime);
+
                     }
                     mSortAddTimeAsc = !mSortAddTimeAsc;
                     break;
