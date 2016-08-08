@@ -9,6 +9,7 @@
       android:layout_height="150dp"
       android:background="@drawable/hahaha">
       <TextView
+          android:id="@+id/tv_center_setting"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="设置"
@@ -16,6 +17,7 @@
           android:textSize="23dp"
           android:padding="10dp"/>
       <ImageView
+          android:id="@+id/iv_center_msg"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:src="@drawable/lalala"
@@ -48,6 +50,7 @@
           />
   </RelativeLayout>
     <LinearLayout
+        android:id="@+id/center_user_order_list"
         android:layout_width="match_parent"
         android:layout_height="60dp">
         <TextView
