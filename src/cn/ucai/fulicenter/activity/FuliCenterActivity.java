@@ -1,15 +1,20 @@
 package cn.ucai.fulicenter.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import cn.ucai.fulicenter.DemoHXSDKHelper;
+import cn.ucai.fulicenter.FuliCenterApplication;
 import cn.ucai.fulicenter.R;
 import cn.ucai.fulicenter.adapter.GoodAdapter;
+import cn.ucai.fulicenter.bean.UserAvatar;
 
 import android.view.View;
 
@@ -21,6 +26,7 @@ public class FuliCenterActivity extends BaseActivity {
     RadioButton rbNewGood;
     RadioButton rbBoutique;
     RadioButton rbCategory;
+
     RadioButton rbCart;
     RadioButton rbPersonalCenter;
     TextView tvCartHint;
@@ -31,6 +37,8 @@ public class FuliCenterActivity extends BaseActivity {
     int currentIndex;
     ViewPager mViewPager;
     ViewPageAdapter mAdapter;
+
+    public static final int ACTION_LOGIN=100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +53,12 @@ public class FuliCenterActivity extends BaseActivity {
     }
 
     private void initFragment() {
-        mFragment = new Fragment[3];
+        mFragment = new Fragment[5];
         mFragment[0] = new NewGoodFragment();
         mFragment[1] = new BoutiqueFragment();
         mFragment[2] = new CategoryFragment();
+        mFragment[3] = new CartFragment();
+        mFragment[4] = new PersonCenterFragment();
 
     }
     class ViewPageAdapter extends FragmentPagerAdapter {
@@ -68,7 +78,6 @@ public class FuliCenterActivity extends BaseActivity {
             return fragments.length;
         }
     }
-
     private void initView() {
         rbBoutique= (RadioButton) findViewById(R.id.rbBoutique);
         rbCart= (RadioButton) findViewById(R.id.rbCart);
@@ -104,16 +113,29 @@ public class FuliCenterActivity extends BaseActivity {
                 mViewPager.setCurrentItem(2);
                 break;
             case R.id.rbCart:
-                index=3;
+                if (DemoHXSDKHelper.getInstance().isLogined()) {
+                    index = 3;
+                } else {
+                    gotoLogin();
+                }
+                mViewPager.setCurrentItem(3);
                 break;
             case R.id.rbPersonalCenter:
-                index=4;
+                if(DemoHXSDKHelper.getInstance().isLogined()){
+                    index=4;
+                }else {
+                    gotoLogin();
+                }
+                mViewPager.setCurrentItem(4);
                 break;
         }
         if(index!=currentIndex){
             setRadioButtonstatus(index);
             currentIndex=index;
         }
+    }
+    private void gotoLogin(){
+        startActivityForResult(new Intent(FuliCenterActivity.this,LoginActivity.class),ACTION_LOGIN);
 
     }
 
@@ -127,5 +149,26 @@ public class FuliCenterActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==ACTION_LOGIN){
+            if(DemoHXSDKHelper.getInstance().isLogined()){
 
+            }else {
+                setRadioButtonstatus(currentIndex);
+                mViewPager.setCurrentItem(currentIndex);
+            }
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(TAG,"onResume");
+        if(!DemoHXSDKHelper.getInstance().isLogined()&&index==4){
+            index=0;
+        }
+
+    }
 }
