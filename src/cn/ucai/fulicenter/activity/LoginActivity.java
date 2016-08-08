@@ -13,6 +13,7 @@
  */
 package cn.ucai.fulicenter.activity;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +24,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -33,13 +35,18 @@ import android.widget.Toast;
 
 import com.easemob.EMCallBack;
 
-import cn.ucai.fulicenter.FuliCenterApplication;
 import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.Utils;
 import cn.ucai.fulicenter.applib.controller.HXSDKHelper;
 import com.easemob.chat.EMChatManager;
 import com.easemob.chat.EMGroupManager;
+import com.easemob.chat.StartServiceReceiver;
+import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
+
 import cn.ucai.fulicenter.Constant;
+import cn.ucai.fulicenter.FuliCenterApplication;
 import cn.ucai.fulicenter.DemoHXSDKHelper;
 import cn.ucai.fulicenter.R;
 import cn.ucai.fulicenter.bean.Result;
@@ -49,13 +56,14 @@ import cn.ucai.fulicenter.db.UserDao;
 import cn.ucai.fulicenter.domain.User;
 import cn.ucai.fulicenter.task.DownloadContactListTask;
 import cn.ucai.fulicenter.utils.CommonUtils;
+import cn.ucai.fulicenter.utils.UserUtils;
 
 /**
  * 登陆页面
  *
  */
 public class LoginActivity extends BaseActivity {
-	private static final String TAG = "LoginActivity";
+	private static final String TAG = LoginActivity.class.getSimpleName();
 	public static final int REQUEST_CODE_SETNICK = 1;
 	private EditText usernameEditText;
 	private EditText passwordEditText;
@@ -66,15 +74,21 @@ public class LoginActivity extends BaseActivity {
 
 	private String currentUsername;
 	private String currentPassword;
-
+	int action;
+//	int action01;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		action = getIntent().getIntExtra("action", 0);
+//		FuliCenterApplication.getInstance().setAction(action);
+//		action01 = getIntent().getIntExtra("action01", 0);
+		Log.e(TAG, "action=" + action);
 		// 如果用户名密码都有，直接进入主页面
 		if (DemoHXSDKHelper.getInstance().isLogined()) {
 			autoLogin = true;
-			startActivity(new Intent(LoginActivity.this, MainActivity.class));
+			//如果用户已登录，直接进入FuliCenterActivity的Fragment
+//			startActivity(new Intent(LoginActivity.this, FuliCenterMainActivity.class).putExtra("username",currentUsername));
+
 
 			return;
 		}
@@ -181,7 +195,8 @@ public class LoginActivity extends BaseActivity {
 
 	private void loginAppServer() {
 		final OkHttpUtils2<String> utils2 = new OkHttpUtils2<String>();
-		utils2.setRequestUrl(I.REQUEST_LOGIN)
+		utils2.url(I.SERVER_ROOTT)
+				.addParam(I.KEY_REQUEST,I.REQUEST_LOGIN)
 				.addParam(I.User.USER_NAME,currentUsername)
 				.addParam(I.User.PASSWORD,currentPassword)
 				.targetClass(String.class)
@@ -190,13 +205,14 @@ public class LoginActivity extends BaseActivity {
 					public void onSuccess(String s) {
 						Log.e(TAG, "s" + s);
 						Result result = Utils.getResultFromJson(s, UserAvatar.class);
+						Log.e(TAG, "result000001=" + result);
 						if (result != null && result.isRetMsg()) {
 							UserAvatar user = (UserAvatar) result.getRetData();
 							Log.e(TAG, "user=" + user);
 							if (user != null) {
 								savaUserToDB(user);
 								loginSuccess(user);
-
+								downloadAvatar();
 							}
 						} else {
 							pd.dismiss();
@@ -214,6 +230,36 @@ public class LoginActivity extends BaseActivity {
 				});
 	}
 
+	private void downloadAvatar() {
+		final OkHttpUtils2<Message> utils = new OkHttpUtils2<Message>();
+		utils.url(UserUtils.getUserAvatarPath(currentUsername))
+				.targetClass(Message.class)
+				.doInBackground(new Callback() {
+					@Override
+					public void onFailure(Request request, IOException e) {
+						Log.e(TAG, "IOException " + e.getMessage());
+					}
+
+					@Override
+					public void onResponse(Response response) throws IOException {
+						byte[] date = response.body().bytes();
+						final String avatarUrl = ((DemoHXSDKHelper) HXSDKHelper.getInstance()).getUserProfileManager().uploadUserAvatar(date);
+						Log.e(TAG, "avatarUrl = " + avatarUrl);
+					}
+				})
+				.execute(new OkHttpUtils2.OnCompleteListener<Message>() {
+					@Override
+					public void onSuccess(Message result) {
+						Log.e(TAG, "result000002= " + result.toString());
+					}
+
+					@Override
+					public void onError(String error) {
+						Log.e(TAG, "error = " + error);
+					}
+				});
+	}
+
 	private void savaUserToDB(UserAvatar user) {
 			UserDao dao = new UserDao(LoginActivity.this);
 			dao.savaUserAvatar(user);
@@ -226,6 +272,7 @@ public class LoginActivity extends BaseActivity {
 		FuliCenterApplication.getInstance().setPassword(currentPassword);
 		FuliCenterApplication.getInstance().setUser(user);
 		FuliCenterApplication.currentUserNick = user.getMUserNick();
+
 		new DownloadContactListTask(LoginActivity.this,currentUsername).execute();
 		try {
 			// ** 第一次登录或者之前logout后再登录，加载所有本地群和回话
@@ -258,9 +305,12 @@ public class LoginActivity extends BaseActivity {
 		}
 		// 进入主页面
 		Intent intent = new Intent(LoginActivity.this,
-				MainActivity.class);
+				FuliCenterActivity.class).putExtra("action",action);
 		startActivity(intent);
-
+		//登录后保存用户收藏数量和收藏内容到全局变量
+//		new DownloadCollectTask(LoginActivity.this,currentUsername).execute();
+//		new DownloadCollectCountTask(LoginActivity.this,currentUsername).execute();
+//		new DownloadCartCountTask(LoginActivity.this,currentUsername).execute();
 		finish();
 	}
 
@@ -274,7 +324,22 @@ public class LoginActivity extends BaseActivity {
 		newFriends.setNick(strChat);
 
 		userlist.put(Constant.NEW_FRIENDS_USERNAME, newFriends);
+		/*// 添加"群聊"
+		User groupUser = new User();
+		String strGroup = getResources().getString(R.string.group_chat);
+		groupUser.setUsername(Constant.GROUP_USERNAME);
+		groupUser.setNick(strGroup);
+		groupUser.setHeader("");
+		userlist.put(Constant.GROUP_USERNAME, groupUser);
 
+		// 添加"Robot"
+		User robotUser = new User();
+		String strRobot = getResources().getString(R.string.robot_chat);
+		robotUser.setUsername(Constant.CHAT_ROBOT);
+		robotUser.setNick(strRobot);
+		robotUser.setHeader("");
+		userlist.put(Constant.CHAT_ROBOT, robotUser);
+*/
 		// 存入内存
 		((DemoHXSDKHelper)HXSDKHelper.getInstance()).setContactList(userlist);
 		// 存入db
@@ -299,4 +364,19 @@ public class LoginActivity extends BaseActivity {
 			return;
 		}
 	}
+
+	public void onBack(View view) {
+
+//		if (FuliCenterApplication.getInstance().getB() == 1) {
+//			FuliCenterApplication.getInstance().setAction(action);
+//			startActivity(new Intent(LoginActivity.this,FuliCenterMainActivity.class).putExtra("action",action));
+////			FuliCenterApplication.getInstance().setB(0);
+//		} else {
+//			FuliCenterApplication.getInstance().setAction(action);
+////			FuliCenterApplication.getInstance().setB(0);
+//			finish();
+//		}
+		Log.e(TAG, "终于到我了02！");
+	}
+
 }
