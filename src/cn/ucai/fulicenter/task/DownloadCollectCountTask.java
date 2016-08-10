@@ -28,7 +28,7 @@ public class DownloadCollectCountTask {
     }
     public void execute(){
         final OkHttpUtils2<MessageBean> utils = new OkHttpUtils2<MessageBean>();
-        utils.url(I.SERVER_ROOTT)
+        utils.url(I.SERVER_ROOT)
                 .addParam(I.KEY_REQUEST,I.REQUEST_FIND_COLLECT_COUNT)
                 .addParam(I.Contact.USER_NAME,userName)
                 .targetClass(MessageBean.class)
