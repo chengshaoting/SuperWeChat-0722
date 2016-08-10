@@ -166,8 +166,14 @@ public class FuliCenterActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         Log.e(TAG,"onResume");
-        if(!DemoHXSDKHelper.getInstance().isLogined()&&index==4){
-            index=0;
+        if(DemoHXSDKHelper.getInstance().isLogined()){
+
+        }else {
+            index=currentIndex;
+            if (index==4){
+                index=0;
+                mViewPager.setCurrentItem(ACTION_LOGIN);
+            }
         }
 
     }
