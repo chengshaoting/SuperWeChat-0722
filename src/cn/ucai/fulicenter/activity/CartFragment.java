@@ -1,6 +1,9 @@
 package cn.ucai.fulicenter.activity;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -38,6 +41,8 @@ public class CartFragment extends Fragment {
     TextView mtvRefreshHint;
     LinearLayoutManager mLayoutManager;
 
+    UpdateCartReceiver mReceiver;
+
     public CartFragment() {
     }
 
@@ -47,7 +52,6 @@ public class CartFragment extends Fragment {
         View layout = inflater.inflate(R.layout.fragment_cart,null);
         mContext = layout.getContext();
         initView(layout);
-        initData();
         setListener();
         return layout;
     }
@@ -114,6 +118,16 @@ public class CartFragment extends Fragment {
         mrvBoutique.setLayoutManager(mLayoutManager);
         msrl = (SwipeRefreshLayout) layout.findViewById(R.id.srl_cart);
         mtvRefreshHint= (TextView) layout.findViewById(R.id.tvRefreshHint);
+    }
+    class UpdateCartReceiver extends BroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            initData();
+        }
+    }
+    private void setUpdateCartListener(){
+        mReceiver = new UpdateCartReceiver();
+        IntentFilter filter 
     }
 
 
