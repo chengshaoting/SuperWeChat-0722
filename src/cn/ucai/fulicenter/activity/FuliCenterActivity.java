@@ -1,6 +1,9 @@
 package cn.ucai.fulicenter.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +16,7 @@ import android.widget.TextView;
 import cn.ucai.fulicenter.DemoHXSDKHelper;
 import cn.ucai.fulicenter.FuliCenterApplication;
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.Utils;
 import cn.ucai.fulicenter.adapter.GoodAdapter;
 import cn.ucai.fulicenter.bean.UserAvatar;
 
@@ -39,6 +43,7 @@ public class FuliCenterActivity extends BaseActivity {
     ViewPageAdapter mAdapter;
 
     public static final int ACTION_LOGIN=100;
+    updateCartReceiver mReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +55,7 @@ public class FuliCenterActivity extends BaseActivity {
     }
 
     private void setListener() {
+        setUpdateCartCountListener();
     }
 
     private void initFragment() {
@@ -176,5 +182,35 @@ public class FuliCenterActivity extends BaseActivity {
             }
         }
 
+    }
+    class updateCartReceiver extends BroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateCartNum();
+        }
+    }
+    private void setUpdateCartCountListener(){
+        mReceiver=new updateCartReceiver();
+        IntentFilter filter = new IntentFilter("update_cart_list");
+        registerReceiver(mReceiver,filter);
+    }
+
+    private void updateCartNum() {
+        int count = Utils.sumCartCount();
+        if (!DemoHXSDKHelper.getInstance().isLogined()||count==0){
+            tvCartHint.setText(String.valueOf(0));
+            tvCartHint.setVisibility(View.GONE);
+        }else {
+            tvCartHint.setText(String.valueOf(count));
+            tvCartHint.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mReceiver!=null){
+            unregisterReceiver(mReceiver);
+        }
     }
 }
